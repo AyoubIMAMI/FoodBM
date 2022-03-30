@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodBM">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PlanManagerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".VoucherActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
