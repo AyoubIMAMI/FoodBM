@@ -11,13 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class NavBarFragment extends Fragment {
     private Button homeButton;
     private Button voucherButton;
     private Button planButton;
-    private Button settingButton;
+    private Button settingsButton;
 
     @Nullable
     @Override
@@ -26,14 +25,23 @@ public class NavBarFragment extends Fragment {
         homeButton = view.findViewById(R.id.homeButton);
         voucherButton = view.findViewById(R.id.voucherButton);
         planButton = view.findViewById(R.id.planButton);
-        settingButton = view.findViewById(R.id.settingButton);
+        settingsButton = view.findViewById(R.id.settingButton);
 
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-            }
+        homeButton.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), MainActivity.class);
+            startActivity(intent);
+        });
+        voucherButton.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), VoucherActivity.class);
+            startActivity(intent);
+        });
+        planButton.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), PlanManagerActivity.class);
+            startActivity(intent);
+        });
+        settingsButton.setOnClickListener(view1 -> {
+            Intent intent = new Intent(getActivity(), SettingsActivity.class);
+            startActivity(intent);
         });
 
         return view;
