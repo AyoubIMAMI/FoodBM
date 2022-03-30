@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.16" />
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.10462962962962963" />
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/fragment_nav_bar.xml" value="0.176" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.1286231884057971" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_settings.xml" value="0.1286231884057971" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_voucher.xml" value="0.2" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/fragment_nav_bar.xml" value="0.16983695652173914" />
       </map>
     </option>
   </component>

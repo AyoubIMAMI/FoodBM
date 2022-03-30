@@ -14,4 +14,36 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout="@layout/fragment_nav_bar" />
 
+    <TextView
+        android:id="@+id/voucherTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/gestion_des_coupons"
+        android:textColor="@color/black"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="20dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/voucherUnderTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/mes_coupons"
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="53dp" />
+
+    <Button
+        android:id="@+id/addVoucherButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ajouter_un_coupon"
+        tools:layout_editor_absoluteX="100dp"
+        tools:layout_editor_absoluteY="600dp"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
