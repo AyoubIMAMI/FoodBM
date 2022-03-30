@@ -3,13 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.16" />
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.10462962962962963" />
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/fragment_nav_bar.xml" value="0.176" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.18947368421052632" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.12360688956433637" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/activity_settings.xml" value="0.2006340579710145" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/activity_voucher.xml" value="0.1" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/fragment_nav_bar.xml" value="0.1" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/fragment_plan.xml" value="0.1" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/fragment_voucher.xml" value="0.12360688956433637" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
