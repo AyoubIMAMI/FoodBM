@@ -6,4 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".PlanManagerActivity">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView2"
+        android:name="etu.polytech.foodbm.NavBarFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout="@layout/fragment_nav_bar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
