@@ -5,4 +5,5 @@
     <string name="gestion_des_coupons">Gestion des Coupons</string>
     <string name="ajouter_un_coupon">+ Ajouter un coupon</string>
     <string name="mes_coupons">Mes coupons</string>
+    <string name="carrefour">Carrefour</string>
 </resources>
