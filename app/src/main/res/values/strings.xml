@@ -2,4 +2,8 @@
     <string name="app_name">FoodBM</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gestion_des_coupons">Gestion des Coupons</string>
+    <string name="ajouter_un_coupon">+ Ajouter un coupon</string>
+    <string name="mes_coupons">Mes coupons</string>
+    <string name="carrefour">Carrefour</string>
 </resources>

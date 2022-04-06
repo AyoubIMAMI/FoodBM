@@ -3,9 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.16" />
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.10462962962962963" />
-        <entry key="..\:/Documents/Android Projects/FoodBM/app/src/main/res/layout/fragment_nav_bar.xml" value="0.176" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/drawable/image_area.xml" value="0.168" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.1286231884057971" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_settings.xml" value="0.1286231884057971" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_voucher.xml" value="0.2" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/fragment_nav_bar.xml" value="0.16983695652173914" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/activity_settings.xml" value="0.12360688956433637" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/conso_layout.xml" value="0.72" />
+        <entry key="..\:/leo/Polytech/S6/IHM/git/FoodBM/app/src/main/res/layout/fragment_nav_bar.xml" value="0.12360688956433637" />
       </map>
     </option>
   </component>
