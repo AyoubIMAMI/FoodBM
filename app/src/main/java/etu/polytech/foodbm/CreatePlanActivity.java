@@ -12,19 +12,15 @@ import android.view.View;
         import androidx.annotation.NonNull;
         import androidx.appcompat.app.AppCompatActivity;
 
-        import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
-        import com.google.firebase.database.ValueEventListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
 
-import org.xml.sax.DTDHandler;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 
 public class CreatePlanActivity extends AppCompatActivity {
 
@@ -35,7 +31,7 @@ public class CreatePlanActivity extends AppCompatActivity {
 
     // creating a variable for our
     // Firebase Database.
-    FirebaseDatabase firebaseDatabase;
+    FirebaseFirestore firebase;
 
     // creating a variable for our Database
     // Reference for Firebase.
@@ -58,10 +54,9 @@ public class CreatePlanActivity extends AppCompatActivity {
 
         // below line is used to get the
         // instance of our FIrebase database.
-        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebase= FirebaseFirestore.getInstance();
 
-        // below line is used to get reference for our database.
-        databaseReference = firebaseDatabase.getReference("Plan");
+
 
 
         // initializing our object
@@ -157,24 +152,27 @@ public class CreatePlanActivity extends AppCompatActivity {
 
     private void addDatatoFirebase(String name, String Periode, String dateplan) {
 
+
+      CollectionReference dbCourses = firebase.collection("plan");
+        PlanInfo planInfo = new PlanInfo();
         planInfo.setPlanName(name);
         planInfo.setPeriode(Periode);
         planInfo.setPlanDate(dateplan);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        dbCourses.add(planInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                databaseReference.setValue(planInfo);
-
-                // after adding this data we are showing toast message.
-                Toast.makeText(CreatePlanActivity.this, "data added", Toast.LENGTH_SHORT).show();
+            public void onSuccess(DocumentReference documentReference) {
+                // after the data addition is successful
+                // we are displaying a success toast message.
+                Toast.makeText(CreatePlanActivity.this, "Your Course has been added to Firebase Firestore", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                // this method is called when the data addition process is failed.
+                // displaying a toast message when data addition is failed.
+                Toast.makeText(CreatePlanActivity.this, "Fail to add course \n" + e, Toast.LENGTH_SHORT).show();
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-                Toast.makeText(CreatePlanActivity.this, "Fail to add data " + error, Toast.LENGTH_SHORT).show();
-            }
         });
     }
 }
