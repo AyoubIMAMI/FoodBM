@@ -22,6 +22,9 @@
             android:name=".VoucherActivity"
             android:exported="false" />
         <activity
+            android:name=".CreatePlanActivity"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

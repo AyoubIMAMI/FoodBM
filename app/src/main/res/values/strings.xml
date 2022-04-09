@@ -6,4 +6,7 @@
     <string name="ajouter_un_coupon">+ Ajouter un coupon</string>
     <string name="mes_coupons">Mes coupons</string>
     <string name="carrefour">Carrefour</string>
+    <string name="gestion_des_plans">Gestion des plans</string>
+    <string name="ajouter_un_plan">+ Ajouter un plan</string>
+    <string name="mes_plans">Mes plans</string>
 </resources>
