@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         currencyHelper.execute("10", "EUR", "USD");
 
         ArrayList<Conso> listConso = new ArrayList<>();
-        listConso.add(new Conso("Pate", 200));
+        listConso.add(new Conso(new PlanInfo().getPlanName(), 200));
         listConso.add(new Conso("Sauce", 100));
         //Conso consoPate = new Conso("Pate", 200);
         //Conso consoSauce = new Conso("Sauce", 100);

@@ -6,13 +6,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
-
 import org.json.JSONArray;
+import java.io.InputStream;
+
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -20,6 +20,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Locale;
 
+import etu.polytech.foodbm.CreatePlanActivity;
 import etu.polytech.foodbm.MainActivity;
 import etu.polytech.foodbm.R;
 

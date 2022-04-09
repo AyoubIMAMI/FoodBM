@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "31401303359",
+    "project_id": "foodbm-app",
+    "storage_bucket": "foodbm-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:31401303359:android:a7561b13e9f4db2e05c78a",
+        "android_client_info": {
+          "package_name": "etu.polytech.foodbm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "31401303359-gi4ubh6fifdcmralv4oh38jti7m7koqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8ud6HPnljcapcIYECX563T0DjG1Cho5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "31401303359-gi4ubh6fifdcmralv4oh38jti7m7koqi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
