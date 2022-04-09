@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         NavBarFragment navBarFragment = new NavBarFragment();
         CurrencyHelper currencyHelper = new CurrencyHelper(this);
-        currencyHelper.execute("EUR");
+        currencyHelper.execute("10", "EUR", "USD");
 
         ArrayList<Conso> listConso = new ArrayList<>();
         listConso.add(new Conso("Pate", 200));

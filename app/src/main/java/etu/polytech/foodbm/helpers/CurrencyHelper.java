@@ -18,13 +18,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.Locale;
 
 import etu.polytech.foodbm.MainActivity;
 import etu.polytech.foodbm.R;
 
 public class CurrencyHelper extends AsyncTask<String, Void, String> {
     @SuppressLint("StaticFieldLeak") private final Activity activity;
-
+    private static Locale locale = Locale.FRENCH;
     private final String TAG = "CurrencyHelper";
     private final String REQUESTED_URL =
             "https://openexchangerates.org/api/latest.json?app_id=8a25f1ef6e764f488fa9dfcfd2bb53e0";
@@ -32,12 +33,23 @@ public class CurrencyHelper extends AsyncTask<String, Void, String> {
     public CurrencyHelper(Context context){
         super();
         activity = (MainActivity) context;
+        setLocale(Locale.FRENCH);
     }
 
+    public static void setLocale(Locale locale) {
+        CurrencyHelper.locale = locale;
+        Locale.setDefault(locale);
+    }
+
+    /**
+     * First string - The value to convert.
+     * Second string - The current currency.
+     * Third String - The currency to convert to.
+     */
     @Override
     protected String doInBackground(String... strings) {
         String apiResponse = "";
-        String answer = "";
+        float answer = Float.parseFloat(strings[0]);
 
         try {
             URL url = new URL(REQUESTED_URL);
@@ -60,16 +72,19 @@ public class CurrencyHelper extends AsyncTask<String, Void, String> {
             }
             conn.disconnect();
 
-            Log.d(TAG, "Response body: " + apiResponse);
-            JSONObject jsonObject = new JSONObject(apiResponse);
-            JSONArray ratesNode = jsonObject.getJSONArray("rates");
+            // Get rates node
+            JSONObject reader = new JSONObject(apiResponse);
+            JSONObject  ratesNode = reader.getJSONObject("rates");
 
-            JSONObject jsonObject1 = new JSONObject(ratesNode.toString());
-            JSONArray currency = jsonObject1.getJSONArray(strings[0]);
-            answer = currency.toString();
+            // Get the first current currency
+            String currency1 = ratesNode.getString(strings[1]);
 
-            Log.d(TAG, answer);
+            // Get the second current currency
+            String currency2 = ratesNode.getString(strings[2]);
 
+            //Processing the information to display
+            answer = (Float.parseFloat(strings[0]) * Float.parseFloat(currency2))
+                    / Float.parseFloat(currency1);
 
         } catch (MalformedURLException e) {
             Log.e(TAG, "MalformedURLException: " + e.getMessage());
@@ -81,12 +96,14 @@ public class CurrencyHelper extends AsyncTask<String, Void, String> {
             Log.e(TAG, "Exception: " + e);
         }
 
-        return answer;
+        String value2 = String.format("%.2f", answer);
+        return  value2+ " " + strings[2];
     }
 
     @Override
     protected void onPostExecute(String response) {
         TextView currencyTextView = activity.findViewById(R.id.totalValue);
+        currencyTextView.setText(response);
     }
 }
 
