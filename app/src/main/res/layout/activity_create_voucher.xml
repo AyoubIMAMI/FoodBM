@@ -6,11 +6,11 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/voucherName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="204dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
@@ -18,35 +18,34 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/voucherDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="39dp"
         android:ems="10"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        android:inputType="textPersonName"
+        android:text="Description"
+        app:layout_constraintStart_toStartOf="@+id/voucherName"
+        app:layout_constraintTop_toBottomOf="@+id/voucherName" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/VDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="46dp"
+        android:layout_marginTop="45dp"
         android:ems="10"
         android:inputType="date"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumber"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintStart_toStartOf="@+id/voucherDescription"
+        app:layout_constraintTop_toBottomOf="@+id/voucherDescription" />
 
     <Button
-        android:id="@+id/ajouter"
+        android:id="@+id/ajouterV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="160dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="108dp"
         android:text="Ajouter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

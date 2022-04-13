@@ -23,6 +23,9 @@
             android:name=".VoucherActivity"
             android:exported="false" />
         <activity
+            android:name=".AddVoucherActivity"
+            android:exported="false" />
+        <activity
             android:name=".CreatePlanActivity"
             android:exported="false"/>
         <activity
