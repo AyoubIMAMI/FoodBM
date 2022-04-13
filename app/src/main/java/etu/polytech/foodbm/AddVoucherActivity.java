@@ -149,15 +149,15 @@ import java.util.Calendar;
             });
         }
 
-        private void addDatatoFirebase(String name, String Periode, String dateplan) {
+        private void addDatatoFirebase(String name, String Description, String date) {
 
 
-            CollectionReference dbCourses = firebase.collection("plan");
-            PlanInfo planInfo = new PlanInfo();
-            planInfo.setPlanName(name);
-            planInfo.setPeriode(Periode);
-            planInfo.setPlanDate(dateplan);
-            dbCourses.add(planInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
+            CollectionReference dbvoucher = firebase.collection("voucher");
+           VoucherInfo voucherInfo = new VoucherInfo();
+           voucherInfo.setVName(name);
+            voucherInfo.setDescription(Description);
+            voucherInfo.setVDate(date);
+            dbvoucher.add(voucherInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
                 @Override
                 public void onSuccess(DocumentReference documentReference) {
                     // after the data addition is successful

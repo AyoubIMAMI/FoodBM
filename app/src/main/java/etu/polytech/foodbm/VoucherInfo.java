@@ -1,0 +1,37 @@
+package etu.polytech.foodbm;
+
+public class VoucherInfo {
+    private String VName;
+    private String Description;
+    private String VDate;
+
+
+    public VoucherInfo() {
+
+    }
+
+
+    public String getVName() {
+        return VName;
+    }
+
+    public void setVName(String PlanName) {
+        this.VName = PlanName;
+    }
+
+    public String getDescription() {
+        return Description;
+    }
+
+    public void setDescription(String Periode) {
+        this.Description =Periode;
+    }
+
+    public String getVDate(String date) {
+        return VDate;
+    }
+
+    public void setVDate(String PlanDate) {
+        this.VDate =PlanDate;
+    }
+}
