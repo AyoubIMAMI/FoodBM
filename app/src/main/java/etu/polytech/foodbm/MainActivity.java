@@ -1,6 +1,9 @@
 package etu.polytech.foodbm;
 
+import static etu.polytech.foodbm.NotificationActivity.channel_ID;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.os.Bundle;
 import android.widget.ListView;
@@ -12,6 +15,8 @@ import etu.polytech.foodbm.helpers.CurrencyHelper;
 public class MainActivity extends AppCompatActivity {
 
     //ActivityMainBinding binding;
+    VoucherInfo voucherInfo;
+    private int notificationId=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,5 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
         ListView historiqueListView = findViewById(R.id.historique);
         historiqueListView.setAdapter(listAdaptater);
+        voucherInfo=new VoucherInfo();
+        String name=voucherInfo.getVName();
+        String description2=voucherInfo.getDescription();
+        sendNotificationchannel(name,description2,channel_ID, NotificationCompat.PRIORITY_DEFAULT);
+
+    }
+
+    private void sendNotificationchannel(String name, String description, String channel_id, int priorityDefault) {
+        NotificationCompat.Builder notification=new NotificationCompat.Builder(getApplicationContext(),channel_id)
+                .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
+                .setContentTitle(name)
+                .setContentText(description)
+                .setPriority(priorityDefault);
+        NotificationActivity.getNotificationManager().notify(++notificationId,notification.build());
     }
 }
