@@ -1,6 +1,11 @@
 package etu.polytech.foodbm;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -8,6 +13,7 @@ import android.util.EventLogTags;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,6 +28,11 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
     public class AddVoucherActivity extends AppCompatActivity {
+
+        private static final int PICK_IMAGE = 100;
+        private ImageView preview;
+        private Button fromGallery;
+        private Button fromCamera;
 
         // creating variables for
         // EditText and buttons.
@@ -147,6 +158,23 @@ import java.util.Calendar;
                     }
                 }
             });
+
+            this.preview = findViewById(R.id.preview);
+            this.fromGallery = (Button) findViewById(R.id.gallery);
+            fromGallery.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openGallery();
+                }
+            });
+
+            this.fromCamera = (Button) findViewById(R.id.camera);
+            fromCamera.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openCamera();
+                }
+            });
         }
 
         private void addDatatoFirebase(String name, String Description, String date) {
@@ -174,6 +202,39 @@ import java.util.Calendar;
 
             });
         }
+
+        private void openGallery() {
+            Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            startActivityForResult(gallery, PICK_IMAGE);
+        }
+
+        static final int REQUEST_IMAGE_CAPTURE = 1;
+
+        private void openCamera() {
+            Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            try {
+                startActivityForResult(camera, REQUEST_IMAGE_CAPTURE);
+            } catch (ActivityNotFoundException e) {
+                // display error state to the user
+            }
+        }
+
+        @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
+            if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
+                Uri imageUri = data.getData();
+                preview.setImageURI(imageUri);
+            }
+            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                preview.setImageBitmap(imageBitmap);
+            }
+
+        }
+
+
     }
 
 
