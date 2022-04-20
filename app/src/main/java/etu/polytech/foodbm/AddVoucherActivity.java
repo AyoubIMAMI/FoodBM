@@ -242,13 +242,12 @@ import java.util.Calendar;
 
         public void AddCalendarEvent(View view) {
             Calendar calendarEvent = Calendar.getInstance();
+            long time = calendarEvent.getTimeInMillis() + 60 * 60 * 1000;
             Intent i = new Intent(Intent.ACTION_EDIT);
             i.setType("vnd.android.cursor.item/event");
-            i.putExtra("beginTime", calendarEvent.getTimeInMillis());
-            i.putExtra("allDay", true);
-            i.putExtra("rule", "FREQ=YEARLY");
-            i.putExtra("endTime", calendarEvent.getTimeInMillis() + 60 * 60 * 1000);
-            i.putExtra("title", "Calendar Event");
+            i.putExtra("beginTime", time);
+            i.putExtra("endTime", time);
+            i.putExtra("title", VDescription.getText());
             startActivity(i);
         }
 
