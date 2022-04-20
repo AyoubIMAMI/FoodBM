@@ -31,8 +31,6 @@ import java.util.Calendar;
 
         private static final int PICK_IMAGE = 100;
         private ImageView preview;
-        private Button fromGallery;
-        private Button fromCamera;
 
         // creating variables for
         // EditText and buttons.
@@ -60,7 +58,7 @@ import java.util.Calendar;
             // initializing our edittext and button
             VName = findViewById(R.id.voucherName);
             VDescription= findViewById(R.id.voucherDescription);
-           VDate = findViewById(R.id.VDate);
+            VDate = findViewById(R.id.VDate);
 
             // below line is used to get the
             // instance of our FIrebase database.
@@ -160,7 +158,7 @@ import java.util.Calendar;
             });
 
             this.preview = findViewById(R.id.preview);
-            this.fromGallery = (Button) findViewById(R.id.gallery);
+            Button fromGallery = (Button) findViewById(R.id.gallery);
             fromGallery.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -168,11 +166,19 @@ import java.util.Calendar;
                 }
             });
 
-            this.fromCamera = (Button) findViewById(R.id.camera);
+            Button fromCamera = (Button) findViewById(R.id.camera);
             fromCamera.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     openCamera();
+                }
+            });
+
+            Button addAgendaEvent = (Button) findViewById(R.id.addAgendaEvent);
+            addAgendaEvent.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    AddCalendarEvent(view);
                 }
             });
         }
@@ -232,6 +238,18 @@ import java.util.Calendar;
                 preview.setImageBitmap(imageBitmap);
             }
 
+        }
+
+        public void AddCalendarEvent(View view) {
+            Calendar calendarEvent = Calendar.getInstance();
+            Intent i = new Intent(Intent.ACTION_EDIT);
+            i.setType("vnd.android.cursor.item/event");
+            i.putExtra("beginTime", calendarEvent.getTimeInMillis());
+            i.putExtra("allDay", true);
+            i.putExtra("rule", "FREQ=YEARLY");
+            i.putExtra("endTime", calendarEvent.getTimeInMillis() + 60 * 60 * 1000);
+            i.putExtra("title", "Calendar Event");
+            startActivity(i);
         }
 
 
