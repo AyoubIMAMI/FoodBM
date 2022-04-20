@@ -9,4 +9,10 @@
     <string name="gestion_des_plans">Gestion des plans</string>
     <string name="ajouter_un_plan">+ Ajouter un plan</string>
     <string name="mes_plans">Mes plans</string>
+    <string name="nom">Nom</string>
+    <string name="description">Description</string>
+    <string name="date_limite">Date limite</string>
+    <string name="ajouter">Ajouter</string>
+    <string name="depuis_camera">Depuis camera</string>
+    <string name="depuis_galerie">Depuis Galerie</string>
 </resources>
