@@ -6,33 +6,65 @@
     android:layout_height="match_parent"
     tools:context=".PlanManagerActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textGestionPlan"
+            android:layout_width="284dp"
+            android:layout_height="55dp"
+            android:text="Gestion des plans"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textMesPlans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mes plans"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <ListView
+            android:id="@+id/planListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/plan_layout">
+
+            <Button
+                android:id="@+id/addPlanButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ajouter_un_plan"
+                tools:ignore="MissingConstraints" />
+        </ListView>
+    </LinearLayout>
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView2"
         android:name="etu.polytech.foodbm.NavBarFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout="@layout/fragment_nav_bar" />
-    <TextView
-        android:id="@+id/PlanUnderTitle"
-        android:layout_width="224dp"
-        android:layout_height="54dp"
-        android:text="@string/mes_plans"
-        android:textColor="@color/teal_200"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="46dp" />
-
-    <Button
-        android:id="@+id/addPlanButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ajouter_un_plan"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="127dp"
-        tools:layout_editor_absoluteY="414dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

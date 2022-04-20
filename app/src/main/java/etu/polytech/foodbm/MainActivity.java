@@ -26,18 +26,19 @@ public class MainActivity extends AppCompatActivity {
         CurrencyHelper currencyHelper = new CurrencyHelper(this);
         currencyHelper.execute("10", "EUR", "USD");
 
-        ArrayList<Conso> listConso = new ArrayList<>();
-        listConso.add(new Conso(new PlanInfo().getPlanName(), 200));
-        listConso.add(new Conso("Sauce", 100));
-        //Conso consoPate = new Conso("Pate", 200);
-        //Conso consoSauce = new Conso("Sauce", 100);
+        ArrayList<Conso> listPlan = new ArrayList<>();
+        listPlan.add(new Conso("Conso perso", 100));
+        listPlan.add(new Conso("Travail Chine", 100));
+        listPlan.add(new Conso("Travail Espagne", 100));
+        for(int i= 0 ; i < 20 ; i++)listPlan.add(new Conso("Travail Espagne n°"+i, 100+i));
 
-        ListAdaptater listAdaptater = new ListAdaptater(MainActivity.this, listConso);
+
+        ListAdaptater listAdaptaterPlan = new ListAdaptater(MainActivity.this, listPlan);
         ListView planListView = findViewById(R.id.plans);
-        planListView.setAdapter(listAdaptater);
+        planListView.setAdapter(listAdaptaterPlan);
 
-        ListView historiqueListView = findViewById(R.id.historique);
-        historiqueListView.setAdapter(listAdaptater);
+
+        //--------------------------------
         voucherInfo=new VoucherInfo();
         String name=voucherInfo.getVName();
         String description2=voucherInfo.getDescription();
