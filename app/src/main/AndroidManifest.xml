@@ -3,8 +3,10 @@
     package="etu.polytech.foodbm">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
+        android:name=".NotificationActivity"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -21,6 +23,12 @@
         <activity
             android:name=".VoucherActivity"
             android:exported="false" />
+        <activity
+            android:name=".AddVoucherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreatePlanActivity"
+            android:exported="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">
