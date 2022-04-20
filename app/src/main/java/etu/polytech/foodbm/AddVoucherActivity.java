@@ -1,6 +1,8 @@
 package etu.polytech.foodbm;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -30,6 +32,7 @@ import java.util.Calendar;
         private static final int PICK_IMAGE = 100;
         private ImageView preview;
         private Button fromGallery;
+        private Button fromCamera;
 
         // creating variables for
         // EditText and buttons.
@@ -164,6 +167,14 @@ import java.util.Calendar;
                     openGallery();
                 }
             });
+
+            this.fromCamera = (Button) findViewById(R.id.camera);
+            fromCamera.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    openCamera();
+                }
+            });
         }
 
         private void addDatatoFirebase(String name, String Description, String date) {
@@ -196,6 +207,18 @@ import java.util.Calendar;
             Intent gallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
             startActivityForResult(gallery, PICK_IMAGE);
         }
+
+        static final int REQUEST_IMAGE_CAPTURE = 1;
+
+        private void openCamera() {
+            Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            try {
+                startActivityForResult(camera, REQUEST_IMAGE_CAPTURE);
+            } catch (ActivityNotFoundException e) {
+                // display error state to the user
+            }
+        }
+
         @Override
         protected void onActivityResult(int requestCode, int resultCode, Intent data){
             super.onActivityResult(requestCode, resultCode, data);
@@ -203,7 +226,15 @@ import java.util.Calendar;
                 Uri imageUri = data.getData();
                 preview.setImageURI(imageUri);
             }
+            if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+                Bundle extras = data.getExtras();
+                Bitmap imageBitmap = (Bitmap) extras.get("data");
+                preview.setImageBitmap(imageBitmap);
+            }
+
         }
+
+
     }
 
 

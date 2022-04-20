@@ -26,7 +26,7 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/priceTextView"
+            android:id="@+id/PlanValueTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
@@ -34,7 +34,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/DateDeFinTextView"
+        android:id="@+id/PlanDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"

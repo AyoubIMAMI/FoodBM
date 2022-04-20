@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         for(int i= 0 ; i < 20 ; i++)listPlan.add(new Conso("Travail Espagne n°"+i, 100+i));
 
 
-        ListAdaptater listAdaptaterPlan = new ListAdaptater(MainActivity.this, listPlan);
+        ListAdaptaterConso listAdaptaterConsoPlan = new ListAdaptaterConso(MainActivity.this, listPlan);
         ListView planListView = findViewById(R.id.plans);
-        planListView.setAdapter(listAdaptaterPlan);
+        planListView.setAdapter(listAdaptaterConsoPlan);
 
 
         //--------------------------------

@@ -13,8 +13,8 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 
-public class ListAdaptater extends ArrayAdapter<Conso> {
-    public ListAdaptater(Context context, ArrayList<Conso> consoArrayList) {
+public class ListAdaptaterConso extends ArrayAdapter<Conso> {
+    public ListAdaptaterConso(Context context, ArrayList<Conso> consoArrayList) {
         super(context, R.layout.conso_layout, consoArrayList);
     }
 
