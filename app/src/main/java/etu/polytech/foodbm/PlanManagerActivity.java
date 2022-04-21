@@ -2,7 +2,10 @@ package etu.polytech.foodbm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -36,5 +39,15 @@ public class  PlanManagerActivity extends AppCompatActivity {
         ListAdaptaterPlan listAdaptaterConsoPlan = new ListAdaptaterPlan(PlanManagerActivity.this, listPlan);
         ListView planListView = findViewById(R.id.planListView);
         planListView.setAdapter(listAdaptaterConsoPlan);
+
+        planListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Plan planSelected = (Plan) planListView.getItemAtPosition(i);
+                Intent intent = new Intent(PlanManagerActivity.this, PlanDetailActivity.class);
+                intent.putExtra("plan", planSelected);
+                startActivity(intent);
+            }
+        });
     }
 }

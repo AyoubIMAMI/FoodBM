@@ -36,11 +36,9 @@
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_width="401dp"
+        android:layout_height="580dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
@@ -49,7 +47,7 @@
             android:id="@+id/planListView"
             android:layout_width="match_parent"
             android:layout_height="556dp"
-            tools:listitem="@layout/plan_layout"></ListView>
+            tools:listitem="@layout/plan_layout"/>
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
