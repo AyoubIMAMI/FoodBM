@@ -56,48 +56,40 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="416dp"
-        android:layout_height="275dp"
+        android:layout_width="299dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="56dp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout3"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         app:srcCompat="@drawable/home_graphe" />
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        android:layout_width="414dp"
+        android:layout_height="257dp"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
         <LinearLayout
-            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/planTitle"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:text="Mes plans"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/planTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Mes plans"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <ListView
-                    android:id="@+id/plans"
-                    android:layout_width="match_parent"
-                    android:layout_height="295dp"
-                    tools:listitem="@layout/conso_layout" />
-            </LinearLayout>
-
+            <ListView
+                android:id="@+id/plans"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                tools:listitem="@layout/conso_layout" />
         </LinearLayout>
     </ScrollView>
 
