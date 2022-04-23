@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import etu.polytech.foodbm.model.Conso;
+import etu.polytech.foodbm.controller.MainPlanDisplayController;
+import etu.polytech.foodbm.controller.PlanDisplayController;
 import etu.polytech.foodbm.model.Plan;
+import etu.polytech.foodbm.model.PlanDisplayModel;
 
 public class PlanDetailActivity extends AppCompatActivity {
 
@@ -19,6 +19,7 @@ public class PlanDetailActivity extends AppCompatActivity {
     private TextView nomTextView;
     private TextView valueTextView;
     private TextView dateTextView;
+    private PlanDisplayController planDisplayController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +41,8 @@ public class PlanDetailActivity extends AppCompatActivity {
             }
         }
 
-        ArrayList<Conso> listPlan = new ArrayList<>();
-        listPlan.add(new Conso("Conso perso", 100));
-        listPlan.add(new Conso("Travail Chine", 100));
-        listPlan.add(new Conso("Travail Espagne", 100));
-        for(int i= 0 ; i < 20 ; i++)listPlan.add(new Conso("Travail Espagne n°"+i, 100+i));
-
-
-        ListAdaptaterConso listAdaptaterConsoPlan = new ListAdaptaterConso(PlanDetailActivity.this, listPlan);
-        ListView planListView = findViewById(R.id.listCategorie);
-        planListView.setAdapter(listAdaptaterConsoPlan);
+        // MVC planDisplay controller call
+        planDisplayController = new PlanDisplayController(this);
+        planDisplayController.displayPlans();
     }
 }
