@@ -1,4 +1,4 @@
-package etu.polytech.foodbm.helpers;
+package etu.polytech.foodbm.model;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -6,8 +6,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.TextView;
-import org.json.JSONArray;
-import java.io.InputStream;
 
 import org.json.JSONObject;
 
@@ -20,25 +18,22 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.Locale;
 
-import etu.polytech.foodbm.CreatePlanActivity;
-import etu.polytech.foodbm.MainActivity;
-import etu.polytech.foodbm.R;
+import etu.polytech.foodbm.controller.CurrencyController;
 
-public class CurrencyHelper extends AsyncTask<String, Void, String> {
-    @SuppressLint("StaticFieldLeak") private final Activity activity;
+public class CurrencyModel extends AsyncTask<String, Void, String> {
     private static Locale locale = Locale.FRENCH;
+    private final CurrencyController controller;
     private final String TAG = "CurrencyHelper";
     private final String REQUESTED_URL =
             "https://openexchangerates.org/api/latest.json?app_id=8a25f1ef6e764f488fa9dfcfd2bb53e0";
 
-    public CurrencyHelper(Context context){
-        super();
-        activity = (MainActivity) context;
+    public CurrencyModel(CurrencyController controller){
+        this.controller = controller;
         setLocale(Locale.FRENCH);
     }
 
     public static void setLocale(Locale locale) {
-        CurrencyHelper.locale = locale;
+        CurrencyModel.locale = locale;
         Locale.setDefault(locale);
     }
 
@@ -103,8 +98,7 @@ public class CurrencyHelper extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPostExecute(String response) {
-        TextView currencyTextView = activity.findViewById(R.id.totalValue);
-        currencyTextView.setText(response);
+        this.controller.onCurrencyConverted(response);
     }
 }
 

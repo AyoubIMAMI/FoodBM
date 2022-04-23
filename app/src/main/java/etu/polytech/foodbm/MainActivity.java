@@ -10,21 +10,25 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import etu.polytech.foodbm.helpers.CurrencyHelper;
+import etu.polytech.foodbm.controller.CurrencyController;
+import etu.polytech.foodbm.model.CurrencyModel;
 
 public class MainActivity extends AppCompatActivity {
-
     //ActivityMainBinding binding;
     VoucherInfo voucherInfo;
     private int notificationId=0;
+    CurrencyController currencyController;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         NavBarFragment navBarFragment = new NavBarFragment();
-        CurrencyHelper currencyHelper = new CurrencyHelper(this);
-        currencyHelper.execute("10", "EUR", "USD");
+
+        // MVC currency convertor call
+        currencyController = new CurrencyController(this);
+        currencyController.convertCurrency();
 
         ArrayList<Conso> listPlan = new ArrayList<>();
         listPlan.add(new Conso("Conso perso", 100));
