@@ -11,13 +11,14 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import etu.polytech.foodbm.controller.CurrencyController;
+import etu.polytech.foodbm.controller.NotificationController;
 import etu.polytech.foodbm.model.CurrencyModel;
 
 public class MainActivity extends AppCompatActivity {
     //ActivityMainBinding binding;
     VoucherInfo voucherInfo;
-    private int notificationId=0;
     CurrencyController currencyController;
+    NotificationController notificationController;
 
 
     @Override
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         // MVC currency convertor call
         currencyController = new CurrencyController(this);
         currencyController.convertCurrency();
+
+        // MVC notification controller call
+        notificationController = new NotificationController(this);
+        notificationController.sendNotification();
 
         ArrayList<Conso> listPlan = new ArrayList<>();
         listPlan.add(new Conso("Conso perso", 100));
@@ -42,21 +47,6 @@ public class MainActivity extends AppCompatActivity {
         planListView.setAdapter(listAdaptaterConsoPlan);
 
 
-        //--------------------------------
-        voucherInfo=new VoucherInfo();
-        String name=voucherInfo.getVDate();
-        String description2=voucherInfo.getDescription();
-        sendNotificationchannel(name,description2,channel_ID, NotificationCompat.PRIORITY_DEFAULT);
 
     }
-
-    private void sendNotificationchannel(String name, String description, String channel_id, int priorityDefault) {
-        NotificationCompat.Builder notification=new NotificationCompat.Builder(getApplicationContext(),channel_id)
-                .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
-                .setContentTitle(name)
-                .setContentText(description)
-                .setPriority(priorityDefault);
-        NotificationActivity.getNotificationManager().notify(++notificationId,notification.build());
-    }
-
 }
