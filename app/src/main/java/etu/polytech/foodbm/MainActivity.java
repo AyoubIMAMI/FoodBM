@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         //--------------------------------
         voucherInfo=new VoucherInfo();
-        String name=voucherInfo.getVName();
+        String name=voucherInfo.getVDate();
         String description2=voucherInfo.getDescription();
         sendNotificationchannel(name,description2,channel_ID, NotificationCompat.PRIORITY_DEFAULT);
 
@@ -54,4 +54,5 @@ public class MainActivity extends AppCompatActivity {
                 .setPriority(priorityDefault);
         NotificationActivity.getNotificationManager().notify(++notificationId,notification.build());
     }
+
 }

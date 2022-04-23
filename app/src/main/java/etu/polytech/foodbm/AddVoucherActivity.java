@@ -9,7 +9,6 @@ import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.EventLogTags;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,10 +23,13 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
-    public class AddVoucherActivity extends AppCompatActivity {
+import java.util.Map;
+
+public class AddVoucherActivity extends AppCompatActivity {
 
         private static final int PICK_IMAGE = 100;
         private ImageView preview;
@@ -47,7 +49,7 @@ import java.util.Calendar;
 
         // creating a variable for
         // our object class
-        PlanInfo planInfo;
+
         public Button sendDatabtn;
 
         @Override
@@ -65,11 +67,9 @@ import java.util.Calendar;
             firebase= FirebaseFirestore.getInstance();
 
 
-
-
             // initializing our object
             // class variable.
-            planInfo = new PlanInfo();
+
 
             sendDatabtn = findViewById(R.id.ajouterV);
 
@@ -144,7 +144,7 @@ import java.util.Calendar;
 
                         }
                     });
-                    String date = VDate.getText().toString();
+                    String date2 = VDate.getText().toString();
                     if (TextUtils.isEmpty(name) && TextUtils.isEmpty(Description) && TextUtils.isEmpty((CharSequence) VDate)) {
                         // if the text fields are empty
                         // then show the below message.
@@ -152,7 +152,7 @@ import java.util.Calendar;
                     } else {
                         // else call the method to add
                         // data to our database.
-                        addDatatoFirebase(name,Description, date);
+                        addDatatoFirebase(name,Description, date2);
                     }
                 }
             });
