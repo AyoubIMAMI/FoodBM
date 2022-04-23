@@ -2,7 +2,6 @@ package etu.polytech.foodbm.model;
 
 import java.util.ArrayList;
 
-import etu.polytech.foodbm.Conso;
 import etu.polytech.foodbm.controller.MainPlanDisplayController;
 
 public class MainPlanDisplayModel {

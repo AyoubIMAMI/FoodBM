@@ -10,6 +10,9 @@ import android.widget.TextView;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import etu.polytech.foodbm.model.Conso;
+import etu.polytech.foodbm.model.Plan;
+
 public class PlanDetailActivity extends AppCompatActivity {
 
     private Plan plan;

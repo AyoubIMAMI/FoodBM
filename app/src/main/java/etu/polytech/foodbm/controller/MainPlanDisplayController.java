@@ -5,9 +5,8 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import etu.polytech.foodbm.Conso;
+import etu.polytech.foodbm.model.Conso;
 import etu.polytech.foodbm.ListAdaptaterConso;
-import etu.polytech.foodbm.MainActivity;
 import etu.polytech.foodbm.R;
 import etu.polytech.foodbm.model.MainPlanDisplayModel;
 

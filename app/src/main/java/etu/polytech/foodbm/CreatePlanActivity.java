@@ -22,6 +22,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Calendar;
 
+import etu.polytech.foodbm.model.PlanInfo;
+
 public class CreatePlanActivity extends AppCompatActivity {
 
     // creating variables for
