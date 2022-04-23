@@ -36,9 +36,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout6"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="11dp"
+        android:layout_width="match_parent"
+        android:layout_height="414dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,8 +49,16 @@
         <ListView
             android:id="@+id/planListView"
             android:layout_width="match_parent"
-            android:layout_height="556dp"
-            tools:listitem="@layout/plan_layout"></ListView>
+            android:layout_height="356dp"
+            tools:listitem="@layout/plan_layout" />
+
+        <TextView
+            android:id="@+id/addPlanButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+ AJOUTER UN PLAN"
+            android:textColor="#58A3FF"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView

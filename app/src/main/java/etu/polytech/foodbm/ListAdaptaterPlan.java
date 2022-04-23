@@ -36,4 +36,6 @@ public class ListAdaptaterPlan extends ArrayAdapter<Plan> {
 
         return convertView;
     }
+
+
 }

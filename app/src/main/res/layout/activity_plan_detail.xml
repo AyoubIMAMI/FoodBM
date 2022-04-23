@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlanDetailActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/Nom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="34sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/Value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="336dp" />
+
+        <TextView
+            android:id="@+id/Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="356dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="303dp"
+        android:layout_height="194dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/statsplan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout7" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="398dp"
+        android:layout_height="200dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+
+        <TextView
+            android:id="@+id/Category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Catégories"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/listCategorie"
+            android:layout_width="match_parent"
+            android:layout_height="124dp"
+            tools:listitem="@layout/conso_layout" />
+
+        <TextView
+            android:id="@+id/addCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="+ AJOUTER UNE CATÉGORIE"
+            android:textColor="#67BAFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView4"
+        android:name="etu.polytech.foodbm.NavBarFragment"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_nav_bar" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
