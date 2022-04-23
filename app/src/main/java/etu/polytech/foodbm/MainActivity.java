@@ -3,9 +3,6 @@ package etu.polytech.foodbm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.ListView;
-
-import java.util.ArrayList;
 
 import etu.polytech.foodbm.controller.CurrencyController;
 import etu.polytech.foodbm.controller.MainPlanDisplayController;
