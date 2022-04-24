@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+import etu.polytech.foodbm.model.Plan;
+
 
 public class ListAdaptaterPlan extends ArrayAdapter<Plan> {
     public ListAdaptaterPlan(Context context, ArrayList<Plan> planArrayList) {

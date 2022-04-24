@@ -1,4 +1,4 @@
-package etu.polytech.foodbm;
+package etu.polytech.foodbm.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 

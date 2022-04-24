@@ -3,12 +3,13 @@ package etu.polytech.foodbm.model;
 import java.util.ArrayList;
 
 import etu.polytech.foodbm.controller.MainPlanDisplayController;
+import etu.polytech.foodbm.controller.PlanDisplayController;
 
-public class MainPlanDisplayModel {
-    private MainPlanDisplayController controller;
+public class PlanDisplayModel {
+    private PlanDisplayController controller;
     private ArrayList<Conso> listPlan;
 
-    public MainPlanDisplayModel(MainPlanDisplayController controller) {
+    public PlanDisplayModel(PlanDisplayController controller) {
         this.controller = controller;
     }
 

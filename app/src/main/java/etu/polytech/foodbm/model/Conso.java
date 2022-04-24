@@ -1,4 +1,4 @@
-package etu.polytech.foodbm;
+package etu.polytech.foodbm.model;
 
 public class Conso {
     private String name;

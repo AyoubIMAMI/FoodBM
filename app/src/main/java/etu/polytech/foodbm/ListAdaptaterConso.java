@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
+import etu.polytech.foodbm.model.Conso;
+
 
 public class ListAdaptaterConso extends ArrayAdapter<Conso> {
     public ListAdaptaterConso(Context context, ArrayList<Conso> consoArrayList) {
