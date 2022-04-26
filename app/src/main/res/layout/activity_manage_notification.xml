@@ -46,6 +46,16 @@
                     android:textColor="#FFFFFF"
                     android:textSize="20sp"
                     android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/addNotifButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#494949"
+                    android:backgroundTint="#E4E4E4"
+                    android:text="créer notif"
+                    android:textColor="#FFFFFF" />
             </LinearLayout>
         </LinearLayout>
 

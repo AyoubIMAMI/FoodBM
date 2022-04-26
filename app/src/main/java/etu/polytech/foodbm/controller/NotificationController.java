@@ -23,7 +23,7 @@ import etu.polytech.foodbm.model.NotificationModel;
 
 import static etu.polytech.foodbm.NotificationActivity.channel_ID;
 
-
+import java.util.ArrayList;
 
 
 public class NotificationController  extends AppCompatActivity {
@@ -31,7 +31,6 @@ public class NotificationController  extends AppCompatActivity {
     private final NotificationModel notificationModel;
     private final Activity activity;
     private Bitmap bitmap;
-    private ImageView notifIcon;
 
 
     public NotificationController(Activity activity)  {
@@ -44,18 +43,13 @@ public class NotificationController  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
        this.bitmap=BitmapFactory.decodeResource(getResources(),R.drawable.televha);
 
-        notifIcon = findViewById(R.id.notifImageView);
-        notifIcon.setOnClickListener(view -> {
-            Intent intent = new Intent(this.activity, ManageNotificationActivity.class);
-            //intent.putExtra("notifMan", this);
-            startActivity(intent);
-        });
+
     }
     public void sendNotification(){
         this.notificationModel.sendNotification();
     }
 
-    public void onNotificationSent(String name, String description, int priorityDefault, int notificationId) {
+    public Notification onNotificationSent(String name, String description, int priorityDefault, int notificationId) {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(activity, channel_ID)
 
                 .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
@@ -64,9 +58,15 @@ public class NotificationController  extends AppCompatActivity {
                 .setPriority(priorityDefault)
                 .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(this.bitmap)).setTimeoutAfter(10000);
 
-        NotificationActivity.getNotificationManager().notify(notificationId, notification.build());
+        Notification notif = notification.build();
+        NotificationActivity.getNotificationManager().notify(notificationId, notif);
+        return notif;
     }
 
-
+    public void navigateToNotification(Context c){
+        Intent intent = new Intent(c, ManageNotificationActivity.class);
+        //intent.putExtra("notifMan", this);
+        startActivity(intent);
+    }
 
 }

@@ -2,6 +2,7 @@ package etu.polytech.foodbm.model;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.Notification;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,6 +27,7 @@ public class NotificationModel {
     private static int notificationId = 0;
     private NotificationController controller;
     VoucherInfo voucherInfo =new VoucherInfo();
+    Notification notif;
 
 
 
@@ -56,8 +58,7 @@ public class NotificationModel {
         notificationId++;
         String name = "Coupon "+voucherInfo.getVName()+" a atteint sa date d'expiration";
         String description = voucherInfo.getDescription();
-
-        this.controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
+        this.notif = this.controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
     }
 
 }

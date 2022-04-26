@@ -13,6 +13,7 @@ import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity {
     Spinner spinner;
+    private ImageView notifIcon;
 
 
     @Override
@@ -41,5 +42,11 @@ public class SettingsActivity extends AppCompatActivity {
         //Enfin on passe l'adapter au Spinner et c'est tout
         spinner.setAdapter(adapter);
 
+        notifIcon = findViewById(R.id.notifImageView);
+        notifIcon.setOnClickListener(view -> {
+            Intent intent = new Intent(SettingsActivity.this, ManageNotificationActivity.class);
+            //intent.putExtra("notifMan", this);
+            startActivity(intent);
+        });
     }
 }
