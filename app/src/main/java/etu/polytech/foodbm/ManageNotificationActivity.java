@@ -31,7 +31,7 @@ public class ManageNotificationActivity extends AppCompatActivity {
             this.notificationController = intent.getParcelableExtra("notifMan");
         }*/
         this.listNotification = new ArrayList<>();
-        for(int i= 0 ; i < 20 ; i++)listNotification.add(new Notification());
+        for(int i= 0 ; i < 5 ; i++)listNotification.add(new Notification());
         ListAdaptaterNotification listAdaptaterNotifPlan = new ListAdaptaterNotification(ManageNotificationActivity.this, listNotification);
         ListView notifListView = findViewById(R.id.notifListView);
         notifListView.setAdapter(listAdaptaterNotifPlan);
@@ -61,5 +61,6 @@ public class ManageNotificationActivity extends AppCompatActivity {
         // Add as notification
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
+        listNotification.add(builder.build());
     }
 }
