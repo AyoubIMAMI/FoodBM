@@ -36,12 +36,15 @@ public class VoucherActivity extends AppCompatActivity {
     ArrayList<VoucherInfo> note=new ArrayList<>();
     private DocumentSnapshot documentSnapshot;
     private Query query;
+    private RecyclerView mRecyclerView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voucher);
+        mRecyclerView = findViewById(R.id.recyclerView);
+
         this.CreateVoucher = (Button) findViewById(R.id.addVoucherButton);
        CreateVoucher.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +79,9 @@ public class VoucherActivity extends AppCompatActivity {
                 if(task.isSuccessful()){
                     for(QueryDocumentSnapshot document:task.getResult()){
                         VoucherInfo voucherInfo=document.toObject(VoucherInfo.class);
-                        note.add(voucherInfo);}
+                        note.add(voucherInfo);
+
+                    }
 
 
 
