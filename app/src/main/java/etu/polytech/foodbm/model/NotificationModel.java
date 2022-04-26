@@ -2,9 +2,13 @@ package etu.polytech.foodbm.model;
 
 import static android.content.ContentValues.TAG;
 
+import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;

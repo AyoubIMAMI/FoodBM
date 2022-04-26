@@ -67,7 +67,6 @@ public class AddVoucherActivity extends AppCompatActivity {
             firebase= FirebaseFirestore.getInstance();
 
 
-            DocumentReference datadoc = firebase.document("ROW");
 
             // initializing our object
             // class variable.

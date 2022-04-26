@@ -45,11 +45,10 @@ public class NotificationController  extends AppCompatActivity {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(activity, channel_ID)
 
                 .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
-                .setContentTitle(name)
-                .setContentText(description)
+                .setContentTitle("Alerte Coupon")
+                .setContentText(name)
                 .setPriority(priorityDefault)
-                .setStyle(new NotificationCompat.BigPictureStyle()
-                .bigPicture(this.bitmap));
+                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(this.bitmap)).setTimeoutAfter(10000);
 
         NotificationActivity.getNotificationManager().notify(notificationId, notification.build());
     }
