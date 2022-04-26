@@ -8,16 +8,15 @@ public class VoucherInfo {
     private String VName;
     private String Description;
     private String VDate;
+
+
     public VoucherInfo() {
 
     }
 
 
-
-
-
-        public String getVName() {
-        return this.VName;
+    public String getVName() {
+        return VName;
     }
 
     public void setVName(String PlanName) {
@@ -36,6 +35,7 @@ public class VoucherInfo {
         return VDate;
     }
 
-
-   }
-
+    public void setVDate(String PlanDate) {
+        this.VDate =PlanDate;
+    }
+}
