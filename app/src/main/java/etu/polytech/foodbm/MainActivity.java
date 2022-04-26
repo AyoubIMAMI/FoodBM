@@ -3,6 +3,7 @@ package etu.polytech.foodbm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 
 import etu.polytech.foodbm.controller.CurrencyController;
 import etu.polytech.foodbm.controller.MainPlanDisplayController;
@@ -32,5 +33,6 @@ public class MainActivity extends AppCompatActivity {
         // MVC planDisplay controller call
         mainPlanDisplayController = new MainPlanDisplayController(this);
         mainPlanDisplayController.displayPlans();
+
     }
 }
