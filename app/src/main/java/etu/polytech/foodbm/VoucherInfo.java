@@ -16,7 +16,7 @@ public class VoucherInfo extends AppCompatActivity {
 
 
 
-        public String getVName() {
+    public String getVName() {
         return this.VName;
     }
 
@@ -38,6 +38,7 @@ public class VoucherInfo extends AppCompatActivity {
     public void setVDate(String VDate) {
         this.VDate =VDate;
     }
+
 
 
    }

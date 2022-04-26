@@ -2,6 +2,7 @@ package etu.polytech.foodbm.model;
 
 import static android.content.ContentValues.TAG;
 
+import android.app.Notification;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -14,6 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+
 import etu.polytech.foodbm.VoucherInfo;
 import etu.polytech.foodbm.controller.CurrencyController;
 import etu.polytech.foodbm.controller.NotificationController;
@@ -22,6 +25,7 @@ public class NotificationModel {
     private static int notificationId = 0;
     private NotificationController controller;
     VoucherInfo voucherInfo =new VoucherInfo();
+    private Notification notif;
 
 
 
@@ -52,8 +56,12 @@ public class NotificationModel {
         notificationId++;
         String name = "Coupon "+voucherInfo.getVName()+" a atteint sa date d'expiration";
         String description = voucherInfo.getDescription();
-
-        this.controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
+        Notification notification = this.controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
+        Log.d("Notification", "Nouvelle notification envoyée"+notification);
+        this.notif = notification;
     }
 
+    public VoucherInfo getVoucherInfo() {
+        return voucherInfo;
+    }
 }
