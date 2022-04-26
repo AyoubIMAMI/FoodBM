@@ -41,6 +41,8 @@ public class NavBarFragment extends Fragment {
         });
         settingsButton.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), SettingsActivity.class);
+           /* MainActivity main = (MainActivity) getActivity();
+            intent.putExtra("plan", main.notificationController);*/
             startActivity(intent);
         });
 

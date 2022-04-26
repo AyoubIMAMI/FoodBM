@@ -2,8 +2,10 @@ package etu.polytech.foodbm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
@@ -11,6 +13,8 @@ import java.util.List;
 
 public class SettingsActivity extends AppCompatActivity {
     Spinner spinner;
+    private ImageView notifIcon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +41,12 @@ public class SettingsActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         //Enfin on passe l'adapter au Spinner et c'est tout
         spinner.setAdapter(adapter);
+
+        notifIcon = findViewById(R.id.notifImageView);
+        notifIcon.setOnClickListener(view -> {
+            Intent intent = new Intent(SettingsActivity.this, ManageNotificationActivity.class);
+            //intent.putExtra("notifMan", this);
+            startActivity(intent);
+        });
     }
 }
