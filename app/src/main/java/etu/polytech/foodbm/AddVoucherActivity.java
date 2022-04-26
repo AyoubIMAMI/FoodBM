@@ -248,7 +248,7 @@ public class AddVoucherActivity extends AppCompatActivity {
             i.setType("vnd.android.cursor.item/event");
             i.putExtra("beginTime", time);
             i.putExtra("endTime", time);
-            i.putExtra("title", VDescription.getText());
+            i.putExtra("title", "Coupon");
             startActivity(i);
         }
 
