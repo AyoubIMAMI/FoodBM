@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-public class VoucherInfo extends AppCompatActivity {
+public class VoucherInfo {
     private String VName;
     private String Description;
     private String VDate;
@@ -16,29 +16,25 @@ public class VoucherInfo extends AppCompatActivity {
 
 
 
-    public String getVName() {
+        public String getVName() {
         return this.VName;
     }
 
-    public void setVName(String VoucherName) {
-        this.VName = VoucherName;
+    public void setVName(String PlanName) {
+        this.VName = PlanName;
     }
 
     public String getDescription() {
-        return this.Description;
+        return Description;
     }
 
-    public void setDescription(String Description) {
-        this.Description =Description;
+    public void setDescription(String Periode) {
+        this.Description =Periode;
     }
 
-    public String getVDate() {
-        return this.VDate;
+    public String getVDate(String date) {
+        return VDate;
     }
-    public void setVDate(String VDate) {
-        this.VDate =VDate;
-    }
-
 
 
    }
