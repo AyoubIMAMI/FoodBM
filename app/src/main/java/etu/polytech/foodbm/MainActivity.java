@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         NavBarFragment navBarFragment = new NavBarFragment();
 
+
         // MVC currency convertor call
         currencyController = new CurrencyController(this);
         currencyController.convertCurrency();
