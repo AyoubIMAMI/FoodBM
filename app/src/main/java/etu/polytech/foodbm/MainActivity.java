@@ -3,16 +3,10 @@ package etu.polytech.foodbm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import etu.polytech.foodbm.controller.CurrencyController;
 import etu.polytech.foodbm.controller.MainPlanDisplayController;
 import etu.polytech.foodbm.controller.NotificationController;
-import etu.polytech.foodbm.model.ButtonModel;
-import etu.polytech.foodbm.model.ButtonsModel;
 
 public class MainActivity extends AppCompatActivity {
     CurrencyController currencyController;
