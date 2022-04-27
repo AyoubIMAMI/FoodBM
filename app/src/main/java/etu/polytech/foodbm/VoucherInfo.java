@@ -1,34 +1,34 @@
 package etu.polytech.foodbm;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 
 public class VoucherInfo {
-    private String VName;
-    private String Description;
+    private String VName="coupon";
+    private String Description=new String();
     private String VDate;
 
 
-    public VoucherInfo() {
-
+    public VoucherInfo(){
     }
 
 
+    public void setVName(String VName) {
+        this.VName = VName;
+
+    }
     public String getVName() {
         return VName;
     }
 
-    public void setVName(String PlanName) {
-        this.VName = PlanName;
-    }
+
 
     public String getDescription() {
         return Description;
     }
 
-    public void setDescription(String Periode) {
-        this.Description =Periode;
+    public void setDescription(String Description) {
+        this.Description =Description;
     }
 
     public String getVDate(String date) {
@@ -38,4 +38,5 @@ public class VoucherInfo {
     public void setVDate(String PlanDate) {
         this.VDate =PlanDate;
     }
+
 }

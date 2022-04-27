@@ -33,7 +33,7 @@ public class VoucherActivity extends AppCompatActivity {
     private Button CreateVoucher;
     private View getdata;
     private FirebaseFirestore firestore;
-    ArrayList<VoucherInfo> note=new ArrayList<>();
+    ArrayList<VoucherInfo> note = new ArrayList<>();
     private DocumentSnapshot documentSnapshot;
     private Query query;
     private RecyclerView mRecyclerView;
@@ -46,7 +46,7 @@ public class VoucherActivity extends AppCompatActivity {
         mRecyclerView = findViewById(R.id.recyclerView);
 
         this.CreateVoucher = (Button) findViewById(R.id.addVoucherButton);
-       CreateVoucher.setOnClickListener(new View.OnClickListener() {
+        CreateVoucher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(VoucherActivity.this, AddVoucherActivity.class);
@@ -54,49 +54,14 @@ public class VoucherActivity extends AppCompatActivity {
                 finish();
             }
         });
-       getdata=findViewById(R.id.AfficherVoucher);
-       firestore=FirebaseFirestore.getInstance();
-      FirebaseFirestore db=FirebaseFirestore.getInstance();
-        DocumentReference doc=db.collection("voucher").document();
+        getdata = findViewById(R.id.AfficherVoucher);
+        firestore = FirebaseFirestore.getInstance();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference doc = db.collection("voucher").document();
 
     }
-    private  void getdata(){
 
-        FirebaseFirestore db=FirebaseFirestore.getInstance();
-        CollectionReference  collectionReference=db.collection("voucher");
-      Query notesQuery=null;
-       
-        if(documentSnapshot!=null){
-
-      }
-      else{ query=collectionReference.whereEqualTo("Description","viande");
-      }
-
-
-        query.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot document:task.getResult()){
-                        VoucherInfo voucherInfo=document.toObject(VoucherInfo.class);
-                        note.add(voucherInfo);
-
-                    }
-
-
-
-                    }
-                if(task.getResult().size()!=0){
-                    documentSnapshot=task.getResult().getDocuments().get(task.getResult().size()-1);
-                    
-                }
-                else {
-                    Log.d(TAG,"Query fAILED, Check Logs");
-                }
-
-                }
-            }
-            );}}
+}
 
 
 
