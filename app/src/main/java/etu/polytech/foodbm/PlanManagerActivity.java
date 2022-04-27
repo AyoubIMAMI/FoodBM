@@ -21,6 +21,11 @@ public class  PlanManagerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_manager);
+
+        NavFragment navFragment = NavFragment.newInstance(R.id.planButton);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
+
+
         this.CreatePlan = (TextView) findViewById(R.id.addPlanButton);
         CreatePlan.setOnClickListener(new View.OnClickListener() {
             @Override

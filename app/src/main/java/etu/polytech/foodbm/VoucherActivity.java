@@ -45,6 +45,9 @@ public class VoucherActivity extends AppCompatActivity {
         setContentView(R.layout.activity_voucher);
         mRecyclerView = findViewById(R.id.recyclerView);
 
+        NavFragment navFragment = NavFragment.newInstance(R.id.voucherButton);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
+
         this.CreateVoucher = (Button) findViewById(R.id.addVoucherButton);
         CreateVoucher.setOnClickListener(new View.OnClickListener() {
             @Override

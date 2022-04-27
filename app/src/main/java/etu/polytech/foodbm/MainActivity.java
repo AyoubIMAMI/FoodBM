@@ -24,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        NavBarFragment navBarFragment = new NavBarFragment();
+
+        NavFragment navFragment = NavFragment.newInstance(R.id.homeButton);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
 
 
         // MVC currency convertor call
