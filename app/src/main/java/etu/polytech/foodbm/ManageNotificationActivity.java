@@ -16,15 +16,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 
 import etu.polytech.foodbm.controller.NotificationController;
+import etu.polytech.foodbm.model.NotificationComparable;
 
 public class ManageNotificationActivity extends AppCompatActivity {
 
     private NotificationController notificationController;
-    private ArrayList<Notification> listNotification;
+    private ArrayList<NotificationComparable> listNotification;
     private int indice = 0;
     private ListAdaptaterNotification listAdaptaterNotifPlan;
 
@@ -37,7 +40,7 @@ public class ManageNotificationActivity extends AppCompatActivity {
             this.notificationController = intent.getParcelableExtra("notifMan");
         }*/
         this.listNotification = new ArrayList<>();
-        for(int i= 0 ; i < 5 ; i++)listNotification.add(createNotification("Notification n°"+i,"C'est la notif "+i));
+       // for(int i= 0 ; i < 5 ; i++)listNotification.add(createNotification("Notification n°"+i,"C'est la notif "+i));
         listAdaptaterNotifPlan = new ListAdaptaterNotification(ManageNotificationActivity.this, listNotification);
         ListView notifListView = findViewById(R.id.notifListView);
         notifListView.setAdapter(listAdaptaterNotifPlan);
@@ -53,20 +56,22 @@ public class ManageNotificationActivity extends AppCompatActivity {
     }
 
     private void addNotification() {
-        Notification notif = createNotification("Notification","Je suis une notif");
-        NotificationActivity.getNotificationManager().notify(indice++, notif);
+        NotificationComparable notif = createNotification("Notification","Je suis une notif");
+        NotificationActivity.getNotificationManager().notify(indice++, notif.getNotification());
         listNotification.add(notif);
+        Collections.sort(listNotification);
+        Collections.reverse(listNotification);
         listAdaptaterNotifPlan.notifyDataSetChanged();
     }
 
-    Notification createNotification(String titre, String text){
+    NotificationComparable createNotification(String titre, String text){
         NotificationCompat.Builder notification = new NotificationCompat.Builder(this, channel_ID)
                 .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
-                .setContentTitle(titre)
+                .setContentTitle(titre+indice)
                 .setContentText(text);
 
         Notification notif = notification.build();
-        return notif;
+        return new NotificationComparable(notif, new Date());
     }
 
 }

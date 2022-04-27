@@ -12,37 +12,43 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import etu.polytech.foodbm.model.NotificationComparable;
 import etu.polytech.foodbm.model.NotificationModel;
 import etu.polytech.foodbm.model.Plan;
 
 
-public class ListAdaptaterNotification extends ArrayAdapter<Notification> {
-    public ListAdaptaterNotification(Context context, ArrayList<Notification> planArrayList) {
+public class ListAdaptaterNotification extends ArrayAdapter<NotificationComparable> {
+    public ListAdaptaterNotification(Context context, ArrayList<NotificationComparable> planArrayList) {
         super(context, R.layout.conso_layout, planArrayList);
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        Notification notification = getItem(position);
+        NotificationComparable notificationComp = getItem(position);
         if(convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.notification_layout, parent, false);
         }
 
         TextView notifName = convertView.findViewById(R.id.notificationNameTextView);
-        TextView notifDate= convertView.findViewById(R.id.notificationDateTextView);
+        TextView notifDescription= convertView.findViewById(R.id.notificationDateTextView);
+        TextView notifDate = convertView.findViewById(R.id.dateTextView);
         ImageView deleteButton = convertView.findViewById(R.id.deleteImageView);
+        //dateTextView
 
-        CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
-        CharSequence text = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
+        notifName.setText(notificationComp.getTitle());
+        notifDescription.setText( notificationComp.getDescription());
 
-        notifName.setText(title);
-        notifDate.setText(text);
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:s dd/MM");
+        String currentDateandTime = sdf.format(notificationComp.getNotifDate());
+        notifDate.setText(currentDateandTime);
+
 
         deleteButton.setOnClickListener(view -> {
-            remove(notification);
+            remove(notificationComp);
         });
 
         return convertView;
