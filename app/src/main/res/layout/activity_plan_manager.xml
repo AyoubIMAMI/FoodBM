@@ -62,14 +62,14 @@
     </LinearLayout>
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_container"
-        android:name="etu.polytech.foodbm.NavFragment"
+        android:id="@+id/fragmentContainerView2"
+        android:name="etu.polytech.foodbm.NavBarFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/fragment_nav" />
+        tools:layout="@layout/fragment_nav_bar" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

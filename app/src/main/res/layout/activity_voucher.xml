@@ -7,14 +7,14 @@
     tools:context=".VoucherActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_container"
-        android:name="etu.polytech.foodbm.NavFragment"
+        android:id="@+id/fragmentContainerView2"
+        android:name="etu.polytech.foodbm.NavBarFragment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout="@layout/fragment_nav" />
+        tools:layout="@layout/fragment_nav_bar" />
 
     <TextView
         android:id="@+id/voucherTitle"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="35dp"
         android:text="@string/ajouter_un_coupon"
-        app:layout_constraintBottom_toTopOf="@+id/nav_container"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
@@ -63,10 +63,10 @@
         android:textAlignment="textStart"
         android:textSize="30sp"
         app:icon="@drawable/image_area"
-        app:layout_constraintBottom_toTopOf="@+id/nav_container"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.142"
-        app:layout_constraintStart_toStartOf="@+id/nav_container"
+        app:layout_constraintStart_toStartOf="@+id/fragmentContainerView2"
         app:layout_constraintTop_toBottomOf="@+id/voucherUnderTitle"
         app:layout_constraintVertical_bias="0.06"
         tools:ignore="MissingConstraints" />
@@ -76,7 +76,7 @@
         android:layout_width="75dp"
         android:layout_height="80dp"
         app:icon="@drawable/trash_can"
-        app:layout_constraintBottom_toTopOf="@+id/nav_container"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"

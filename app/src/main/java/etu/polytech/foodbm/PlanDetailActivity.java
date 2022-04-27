@@ -26,9 +26,6 @@ public class PlanDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plan_detail);
 
-        NavFragment navFragment = NavFragment.newInstance(R.id.planButton);
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
-
         this.nomTextView = findViewById(R.id.Nom);
         this.valueTextView = findViewById(R.id.Value);
         this.dateTextView = findViewById(R.id.Date);

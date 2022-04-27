@@ -3,41 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NavFragment">
+    tools:context=".NavBarFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:orientation="horizontal">
-
 
         <Button
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
             android:text="Accueil" />
 
         <Button
             android:id="@+id/voucherButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
             android:text="Coupons" />
 
         <Button
             android:id="@+id/planButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
             android:text="Plan" />
 
         <Button
             android:id="@+id/settingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
             android:text="Options" />
     </LinearLayout>
 
