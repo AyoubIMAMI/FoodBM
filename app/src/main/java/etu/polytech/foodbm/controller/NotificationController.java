@@ -36,7 +36,9 @@ public class NotificationController  extends AppCompatActivity {
     public NotificationController(Activity activity)  {
         this.activity = activity;
         this.notificationModel = new NotificationModel(this);
-
+        this.bitmap=BitmapFactory.decodeResource(activity.getResources(),R.drawable.televha);
+        ImageView image = activity.findViewById(R.id.imageView5);
+        image.setImageBitmap(bitmap);
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {

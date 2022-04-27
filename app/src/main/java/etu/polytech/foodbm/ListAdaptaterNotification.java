@@ -33,15 +33,21 @@ public class ListAdaptaterNotification extends ArrayAdapter<Notification> {
 
         TextView notifName = convertView.findViewById(R.id.notificationNameTextView);
         TextView notifDate= convertView.findViewById(R.id.notificationDateTextView);
+        ImageView deleteButton = convertView.findViewById(R.id.deleteImageView);
 
         CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
         CharSequence text = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
 
-        notifName.setText("title");
-        notifDate.setText("text");
+        notifName.setText(title);
+        notifDate.setText(text);
+
+        deleteButton.setOnClickListener(view -> {
+            remove(notification);
+        });
 
         return convertView;
     }
+
 
 
 }

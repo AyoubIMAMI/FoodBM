@@ -1,5 +1,7 @@
 package etu.polytech.foodbm;
 
+import static etu.polytech.foodbm.NotificationActivity.channel_ID;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
@@ -8,12 +10,14 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import etu.polytech.foodbm.controller.NotificationController;
 
@@ -21,6 +25,8 @@ public class ManageNotificationActivity extends AppCompatActivity {
 
     private NotificationController notificationController;
     private ArrayList<Notification> listNotification;
+    private int indice = 0;
+    private ListAdaptaterNotification listAdaptaterNotifPlan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +37,8 @@ public class ManageNotificationActivity extends AppCompatActivity {
             this.notificationController = intent.getParcelableExtra("notifMan");
         }*/
         this.listNotification = new ArrayList<>();
-        for(int i= 0 ; i < 5 ; i++)listNotification.add(new Notification());
-        ListAdaptaterNotification listAdaptaterNotifPlan = new ListAdaptaterNotification(ManageNotificationActivity.this, listNotification);
+        for(int i= 0 ; i < 5 ; i++)listNotification.add(createNotification("Notification n°"+i,"C'est la notif "+i));
+        listAdaptaterNotifPlan = new ListAdaptaterNotification(ManageNotificationActivity.this, listNotification);
         ListView notifListView = findViewById(R.id.notifListView);
         notifListView.setAdapter(listAdaptaterNotifPlan);
 
@@ -47,20 +53,20 @@ public class ManageNotificationActivity extends AppCompatActivity {
     }
 
     private void addNotification() {
-        NotificationCompat.Builder builder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.planicon)
-                        .setContentTitle("Notifications Example")
-                        .setContentText("This is a test notification");
-
-        Intent notificationIntent = new Intent(this, ManageNotificationActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
-        builder.setContentIntent(contentIntent);
-
-        // Add as notification
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify(0, builder.build());
-        listNotification.add(builder.build());
+        Notification notif = createNotification("Notification","Je suis une notif");
+        NotificationActivity.getNotificationManager().notify(indice++, notif);
+        listNotification.add(notif);
+        listAdaptaterNotifPlan.notifyDataSetChanged();
     }
+
+    Notification createNotification(String titre, String text){
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(this, channel_ID)
+                .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
+                .setContentTitle(titre)
+                .setContentText(text);
+
+        Notification notif = notification.build();
+        return notif;
+    }
+
 }
