@@ -3,10 +3,16 @@ package etu.polytech.foodbm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import etu.polytech.foodbm.controller.CurrencyController;
 import etu.polytech.foodbm.controller.MainPlanDisplayController;
 import etu.polytech.foodbm.controller.NotificationController;
+import etu.polytech.foodbm.model.ButtonModel;
+import etu.polytech.foodbm.model.ButtonsModel;
 
 public class MainActivity extends AppCompatActivity {
     CurrencyController currencyController;
@@ -18,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        NavBarFragment navBarFragment = new NavBarFragment();
+
+        NavFragment navFragment = NavFragment.newInstance(R.id.homeButton);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
 
         // MVC currency convertor call
         currencyController = new CurrencyController(this);

@@ -16,6 +16,10 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+        NavFragment navFragment = NavFragment.newInstance(R.id.settingButton);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
+
         spinner = (Spinner) findViewById(R.id.spinner);
         //Création d'une liste d'élément à mettre dans le Spinner(pour l'exemple)
         List exempleList = new ArrayList();

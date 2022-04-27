@@ -15,6 +15,10 @@ public class VoucherActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_voucher);
+
+        NavFragment navFragment = NavFragment.newInstance(R.id.voucherButton);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
+
         this.CreateVoucher = (Button) findViewById(R.id.addVoucherButton);
        CreateVoucher.setOnClickListener(new View.OnClickListener() {
             @Override
