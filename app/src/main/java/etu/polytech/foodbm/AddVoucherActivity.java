@@ -1,14 +1,19 @@
 package etu.polytech.foodbm;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,6 +31,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.ByteArrayOutputStream;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -33,6 +39,7 @@ public class AddVoucherActivity extends AppCompatActivity {
 
         private static final int PICK_IMAGE = 100;
         private ImageView preview;
+    VoucherInfo voucherInfo = new VoucherInfo();
 
         // creating variables for
         // EditText and buttons.
@@ -51,8 +58,9 @@ public class AddVoucherActivity extends AppCompatActivity {
         // our object class
 
         public Button sendDatabtn;
+    private Bitmap bitmap;
 
-        @Override
+    @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_create_voucher);
@@ -145,7 +153,6 @@ public class AddVoucherActivity extends AppCompatActivity {
 
                         }
                     });
-                    String date2 = VDate.getText().toString();
                     if (TextUtils.isEmpty(name) && TextUtils.isEmpty(Description) && TextUtils.isEmpty((CharSequence) VDate)) {
                         // if the text fields are empty
                         // then show the below message.
@@ -153,7 +160,7 @@ public class AddVoucherActivity extends AppCompatActivity {
                     } else {
                         // else call the method to add
                         // data to our database.
-                        addDatatoFirebase(name,Description, date2);
+                        addDatatoFirebase(name,Description,  VDate.getText().toString()) ;
                     }
                 }
             });
@@ -188,8 +195,9 @@ public class AddVoucherActivity extends AppCompatActivity {
 
 
             CollectionReference dbvoucher = firebase.collection("voucher");
-           VoucherInfo voucherInfo = new VoucherInfo();
-           voucherInfo.setVName(name);
+
+
+            voucherInfo.setVName(name);
             voucherInfo.setDescription(Description);
             voucherInfo.setVDate(date);
             dbvoucher.add(voucherInfo).addOnSuccessListener(new OnSuccessListener<DocumentReference>(){
@@ -232,11 +240,21 @@ public class AddVoucherActivity extends AppCompatActivity {
             if (resultCode == RESULT_OK && requestCode == PICK_IMAGE){
                 Uri imageUri = data.getData();
                 preview.setImageURI(imageUri);
+
             }
             if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
                 Bundle extras = data.getExtras();
                 Bitmap imageBitmap = (Bitmap) extras.get("data");
                 preview.setImageBitmap(imageBitmap);
+                ByteArrayOutputStream stream= new ByteArrayOutputStream();
+                imageBitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+                byte [] bytes=stream.toByteArray();
+                String simage= Base64.encodeToString(bytes,Base64.DEFAULT);
+                voucherInfo.setImageID(simage);
+                Log.d(TAG,"csljkdslkdl"+voucherInfo.getImageID());
+
+
+
             }
 
         }

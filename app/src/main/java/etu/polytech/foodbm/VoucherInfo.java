@@ -6,10 +6,11 @@ import android.media.Image;
 public class VoucherInfo {
     private String VName="coupon";
     private String Description=new String();
-    private String VDate;
+    private  String ImageID=new String();
 
 
     public VoucherInfo(){
+
     }
 
 
@@ -31,12 +32,21 @@ public class VoucherInfo {
         this.Description =Description;
     }
 
-    public String getVDate(String date) {
+    public String getVDate() {
         return VDate;
     }
 
-    public void setVDate(String PlanDate) {
-        this.VDate =PlanDate;
+    public void setVDate(String VDate) {
+        this.VDate = VDate;
     }
 
+    private String VDate;
+
+    public String getImageID() {
+        return ImageID;
+    }
+
+    public void setImageID(String imageID) {
+        ImageID = imageID;
+    }
 }

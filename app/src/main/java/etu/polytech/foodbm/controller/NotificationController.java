@@ -1,5 +1,7 @@
 package etu.polytech.foodbm.controller;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Activity;
 import android.app.Notification;
 import android.content.Context;
@@ -9,7 +11,11 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
@@ -23,6 +29,9 @@ import etu.polytech.foodbm.model.NotificationModel;
 
 import static etu.polytech.foodbm.NotificationActivity.channel_ID;
 
+import com.google.firebase.database.core.Tag;
+
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 
@@ -30,13 +39,21 @@ public class NotificationController  extends AppCompatActivity {
 
     private final NotificationModel notificationModel;
     private final Activity activity;
+
     private Bitmap bitmap;
+    private String simage;
 
 
     public NotificationController(Activity activity)  {
         this.activity = activity;
         this.notificationModel = new NotificationModel(this);
-        this.bitmap=BitmapFactory.decodeResource(activity.getResources(),R.drawable.coupon);
+        this.bitmap=BitmapFactory.decodeResource(activity.getResources(), R.drawable.coupon);
+        ByteArrayOutputStream stream= new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
+        byte [] bytes=stream.toByteArray();
+        simage= Base64.encodeToString(bytes,Base64.DEFAULT);
+        Log.d(TAG,"image est "+simage);
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
