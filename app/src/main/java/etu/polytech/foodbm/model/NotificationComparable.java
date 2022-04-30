@@ -4,17 +4,19 @@ import android.app.Notification;
 
 import java.util.Date;
 
-public class NotificationComparable  implements Comparable{
+public class NotificationComparable  implements Comparable, Cloneable{
     public Notification notification;
     public String title;
     public String description;
     public Date notifDate;
+    //this.title = notification.extras.getCharSequence(Notification.EXTRA_TITLE).toString();
+    // this.description = notification.extras.getCharSequence(Notification.EXTRA_TEXT).toString();
 
-    public NotificationComparable(Notification notification, Date notifDate){
+    public NotificationComparable(Notification notification, Date notifDate, String title, String description){
         this.notification = notification;
         this.notifDate = notifDate;
-        this.title = notification.extras.getCharSequence(Notification.EXTRA_TITLE).toString();
-        this.description = notification.extras.getCharSequence(Notification.EXTRA_TEXT).toString();
+        this.title = title;
+        this.description = description;
     }
 
     public Notification getNotification() {

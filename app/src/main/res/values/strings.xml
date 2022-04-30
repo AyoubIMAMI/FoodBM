@@ -17,4 +17,5 @@
     <string name="depuis_galerie">Depuis Galerie</string>
     <string name="evenement_agenda">Evenement agenda</string>
     <string name="v_nement_agenda">Évènement agenda</string>
+    <string name="addDateString">Ajouter une date</string>
 </resources>
