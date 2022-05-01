@@ -1,11 +1,13 @@
 package etu.polytech.foodbm.model;
 
 import android.app.Notification;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class NotificationComparable  implements Comparable, Cloneable{
+public class NotificationComparable  implements Comparable, Parcelable {
     public Notification notification;
     public String title;
     public String description;
@@ -19,6 +21,24 @@ public class NotificationComparable  implements Comparable, Cloneable{
         this.title = title;
         this.description = description;
     }
+
+    protected NotificationComparable(Parcel in) {
+        notification = in.readParcelable(Notification.class.getClassLoader());
+        title = in.readString();
+        description = in.readString();
+    }
+
+    public static final Creator<NotificationComparable> CREATOR = new Creator<NotificationComparable>() {
+        @Override
+        public NotificationComparable createFromParcel(Parcel in) {
+            return new NotificationComparable(in);
+        }
+
+        @Override
+        public NotificationComparable[] newArray(int size) {
+            return new NotificationComparable[size];
+        }
+    };
 
     public Notification getNotification() {
         return notification;
@@ -64,5 +84,17 @@ public class NotificationComparable  implements Comparable, Cloneable{
             }
         }
         return 0;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeParcelable(notification, i);
+        parcel.writeString(title);
+        parcel.writeString(description);
     }
 }

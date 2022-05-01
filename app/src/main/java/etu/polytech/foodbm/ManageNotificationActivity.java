@@ -20,6 +20,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -37,7 +38,6 @@ import etu.polytech.foodbm.model.NotificationComparable;
 
 public class ManageNotificationActivity extends AppCompatActivity {
 
-    private NotificationController notificationController;
     private ArrayList<NotificationComparable> listNotificationOriginal;
     private ArrayList<NotificationComparable> listNotification;
     private ArrayList<NotificationComparable> listNotificationFilter;
@@ -53,6 +53,8 @@ public class ManageNotificationActivity extends AppCompatActivity {
     EditText titleEdit;
     EditText descriptionEdit;
 
+    View filterView;
+    boolean hideFilterView = false;
 
 
     @Override
@@ -61,14 +63,19 @@ public class ManageNotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_manage_notification);
         Intent intent = getIntent();
         /*if (intent != null){
-            this.notificationController = intent.getParcelableExtra("notifMan");
+            this.listNotificationOriginal = intent.getParcelableExtra("listNotif");
+            Toast.makeText(getApplicationContext(), "YYYESSS in notif",
+                    Toast.LENGTH_SHORT)
+                    .show();
         }*/
-        this.listNotificationOriginal = new ArrayList<>();
+        this.filterView = findViewById(R.id.filterView);
+        this.listNotificationOriginal  = new ArrayList<>();
+        //this.listNotificationOriginal = NotificationController.listNotificationOriginal;
         this.listNotification = new ArrayList<>();
         this.listNotificationFilter = new ArrayList<>();
-        for(int i= 0 ; i < 5 ; i++)listNotificationOriginal.add(createNotification("Notification Init","C'est la notif "));
+        //for(int i= 0 ; i < 5 ; i++)listNotificationOriginal.add(createNotification("Notification Init","C'est la notif "));
 
-        this.listNotification = cloneList(this.listNotificationOriginal);
+        this.listNotification = cloneList(listNotificationOriginal);
         setupListView(listNotification);
 
         setDate = (Button) findViewById(R.id.setDateButton);
@@ -79,6 +86,18 @@ public class ManageNotificationActivity extends AppCompatActivity {
         year = calendar.get(Calendar.YEAR);
         month = calendar.get(Calendar.MONTH);
         day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        View FilterContainer = findViewById(R.id.FilterContainer);
+        FilterContainer.setOnClickListener(view -> {
+            ImageView arrow = findViewById(R.id.arrowImageView);
+            if(hideFilterView){
+                hideFilterView = false;
+                filterView.setVisibility(LinearLayout.VISIBLE);
+            }
+            else{
+                hideFilterView = true;
+                filterView.setVisibility(LinearLayout.GONE);
+            }        });
 
 
         Button addNotif = (Button) findViewById(R.id.addNotifButton);
@@ -91,6 +110,8 @@ public class ManageNotificationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 filterNotif();
+                ImageView deleteFilter = (ImageView) findViewById(R.id.deleteFilterImageView);
+                deleteFilter.setVisibility(LinearLayout.VISIBLE);
             }
         });
         //deleteFilterImageView
@@ -102,6 +123,7 @@ public class ManageNotificationActivity extends AppCompatActivity {
                 titleEdit.setText("");
                 setDate.setText("Selectionner une date");
                 selectedDate = null;
+                deleteFilter.setVisibility(LinearLayout.INVISIBLE);
         });
 
         //setDateButton

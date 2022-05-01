@@ -18,6 +18,7 @@ import java.util.List;
 
 import etu.polytech.foodbm.model.ButtonModel;
 import etu.polytech.foodbm.model.ButtonsModel;
+import etu.polytech.foodbm.model.NotificationComparable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -77,6 +78,11 @@ public class NavFragment extends Fragment {
 
             button.setOnClickListener(view -> {
                 Intent intent = new Intent(getActivity(), buttonModel.redirection);
+                /*if(buttonModel.name == "Options"){
+                    MainActivity main = (MainActivity) getActivity();
+                    ArrayList<NotificationComparable> list = main.notificationController.getListNotificationOriginal();
+                    intent.putExtra("listNotif", list);
+                }*/
                 startActivity(intent);
             });
         }

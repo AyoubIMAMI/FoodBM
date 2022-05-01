@@ -25,6 +25,7 @@ import etu.polytech.foodbm.ManageNotificationActivity;
 import etu.polytech.foodbm.NotificationActivity;
 import etu.polytech.foodbm.R;
 import etu.polytech.foodbm.SettingsActivity;
+import etu.polytech.foodbm.model.NotificationComparable;
 import etu.polytech.foodbm.model.NotificationModel;
 
 import static etu.polytech.foodbm.NotificationActivity.channel_ID;
@@ -33,10 +34,12 @@ import com.google.firebase.database.core.Tag;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
+import java.util.Date;
 
 
-public class NotificationController  extends AppCompatActivity {
+public class NotificationController  extends AppCompatActivity{
 
+    public static ArrayList<NotificationComparable> listNotificationOriginal;
     private final NotificationModel notificationModel;
     private final Activity activity;
 
@@ -48,6 +51,8 @@ public class NotificationController  extends AppCompatActivity {
         this.activity = activity;
         this.notificationModel = new NotificationModel(this);
         this.bitmap=BitmapFactory.decodeResource(activity.getResources(), R.drawable.coupon);
+        this.listNotificationOriginal = new ArrayList<>();
+
         ByteArrayOutputStream stream= new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,stream);
         byte [] bytes=stream.toByteArray();
@@ -76,6 +81,8 @@ public class NotificationController  extends AppCompatActivity {
 
         Notification notif = notification.build();
         NotificationActivity.getNotificationManager().notify(notificationId, notif);
+        NotificationComparable notifComparable = new NotificationComparable(notif, new Date(), "Alerte Coupon", name);
+        listNotificationOriginal.add(notifComparable);
         return notif;
     }
 
@@ -85,4 +92,7 @@ public class NotificationController  extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public ArrayList<NotificationComparable> getListNotificationOriginal() {
+        return listNotificationOriginal;
+    }
 }
