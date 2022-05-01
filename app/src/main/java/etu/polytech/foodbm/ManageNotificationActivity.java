@@ -5,6 +5,8 @@ import static etu.polytech.foodbm.NotificationActivity.channel_ID;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -15,12 +17,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.stream.Collectors;
@@ -38,6 +45,16 @@ public class ManageNotificationActivity extends AppCompatActivity {
     private int indice = 0;
     private ListAdaptaterNotification listAdaptaterNotifPlan;
 
+    private int year, month, day;
+    private Calendar calendar;
+    private Date selectedDate = null;
+
+    Button setDate;
+    EditText titleEdit;
+    EditText descriptionEdit;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,10 +66,19 @@ public class ManageNotificationActivity extends AppCompatActivity {
         this.listNotificationOriginal = new ArrayList<>();
         this.listNotification = new ArrayList<>();
         this.listNotificationFilter = new ArrayList<>();
-         for(int i= 0 ; i < 5 ; i++)listNotificationOriginal.add(createNotification("Notification Init","C'est la notif "));
+        for(int i= 0 ; i < 5 ; i++)listNotificationOriginal.add(createNotification("Notification Init","C'est la notif "));
 
-         this.listNotification = cloneList(this.listNotificationOriginal);
-         setupListView(listNotification);
+        this.listNotification = cloneList(this.listNotificationOriginal);
+        setupListView(listNotification);
+
+        setDate = (Button) findViewById(R.id.setDateButton);
+        titleEdit = findViewById(R.id.titleEditText);
+        descriptionEdit = findViewById(R.id.descriptionEditText);
+
+        calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
 
 
         Button addNotif = (Button) findViewById(R.id.addNotifButton);
@@ -72,8 +98,53 @@ public class ManageNotificationActivity extends AppCompatActivity {
         deleteFilter.setOnClickListener(view -> {
                 this.listNotification = cloneList(this.listNotificationOriginal);
                 setupListView(listNotification);
+                descriptionEdit.setText("");
+                titleEdit.setText("");
+                setDate.setText("Selectionner une date");
+                selectedDate = null;
+        });
+
+        //setDateButton
+        Button setDate = (Button) findViewById(R.id.setDateButton);
+        setDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            @SuppressWarnings("deprecation")
+            public void onClick(View v) {
+                showDialog(999);
+            }
         });
     }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        // TODO Auto-generated method stub
+        if (id == 999) {
+            return new DatePickerDialog(this,
+                    myDateListener, year, month, day);
+        }
+        return null;
+    }
+
+    private DatePickerDialog.OnDateSetListener myDateListener = new
+            DatePickerDialog.OnDateSetListener() {
+                @Override
+                @SuppressWarnings("deprecation")
+                public void onDateSet(DatePicker arg0,
+                                      int arg1, int arg2, int arg3) {
+                    // TODO Auto-generated method stub
+                    // arg1 = year
+                    // arg2 = month
+                    // arg3 = day
+                    //showDate(arg1, arg2+1, arg3);
+                    Date date = new Date(arg1, arg2, arg3);
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YY");
+                    setDate.setText(sdf.format(date));
+                    Toast.makeText(getApplicationContext(), sdf.format(date),
+                            Toast.LENGTH_SHORT)
+                            .show();
+                    selectedDate = date;
+                }
+            };
 
     private void setupListView(ArrayList<NotificationComparable> list){
         listAdaptaterNotifPlan = new ListAdaptaterNotification(ManageNotificationActivity.this, list);
@@ -104,13 +175,8 @@ public class ManageNotificationActivity extends AppCompatActivity {
     public void filterNotif(){
         this.listNotificationFilter = cloneList(this.listNotificationOriginal);
         //recupère les différents filter émis par l'utilisateur
-        EditText titleEdit = findViewById(R.id.titleEditText);
-        EditText descriptionEdit = findViewById(R.id.descriptionEditText);
-        EditText dateEdit = findViewById(R.id.dateEditText);
-
         String title = titleEdit.getText().toString();
         String description = descriptionEdit.getText().toString();
-        String date = dateEdit.getText().toString();
 
 
         //appelle les méthodes de ces filtres
@@ -118,8 +184,16 @@ public class ManageNotificationActivity extends AppCompatActivity {
             this.listNotificationFilter = filterByTitle(listNotificationFilter, title);
         if(description != "")
             this.listNotificationFilter = filterByDescription(listNotificationFilter, description);
-        /*if(date != "")
-            this.listNotificationFilter = filterByDate(listNotificationFilter, date);*/
+        if(selectedDate != null){
+            RadioButton before = findViewById(R.id.beforeRadioButton);
+            RadioButton after = findViewById(R.id.afterRadioButton);
+            if(before.isChecked())
+                this.listNotificationFilter = filterByBeforeDate(listNotificationFilter, selectedDate);
+            else if(after.isChecked())
+                this.listNotificationFilter = filterByAfterDate(listNotificationFilter, selectedDate);
+            else
+                this.listNotificationFilter = filterByDate(listNotificationFilter, selectedDate);
+        }
         //réinstancie la listview
         this.listNotification = listNotificationFilter;
         setupListView(listNotification);
@@ -138,7 +212,8 @@ public class ManageNotificationActivity extends AppCompatActivity {
     }
 
     public ArrayList<NotificationComparable> filterByDate(ArrayList<NotificationComparable> list, Date date){
-        return list.stream().filter(notif -> notif.getNotifDate().toString() == date.toString()).collect(Collectors.toCollection(ArrayList::new));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YY");
+        return list.stream().filter(notif -> notif.getDayNotif().equals(sdf.format(date))).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public ArrayList<NotificationComparable> filterByBeforeDate(ArrayList<NotificationComparable> list, Date date){

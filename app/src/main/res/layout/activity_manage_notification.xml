@@ -98,17 +98,17 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/filterTitleTextView"
+                            android:id="@+id/filterByDescriptionTextView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Filter par titre" />
+                            android:text="Filter par description" />
 
                         <EditText
-                            android:id="@+id/titleEditText"
+                            android:id="@+id/descriptionEditText"
                             android:layout_width="0dp"
                             android:layout_height="48dp"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:ems="10"
                             android:inputType="textPersonName"
                             tools:ignore="SpeakableTextPresentCheck" />
@@ -120,17 +120,17 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/filterByDescriptionTextView"
+                            android:id="@+id/filterTitleTextView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Filter par description" />
+                            android:text="Filter par titre" />
 
                         <EditText
-                            android:id="@+id/descriptionEditText"
+                            android:id="@+id/titleEditText"
                             android:layout_width="0dp"
                             android:layout_height="48dp"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:ems="10"
                             android:inputType="textPersonName"
                             tools:ignore="SpeakableTextPresentCheck" />
@@ -145,18 +145,69 @@
                             android:id="@+id/filterByDateTextView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="6"
                             android:text="Filter par date" />
 
-                        <EditText
-                            android:id="@+id/dateEditText"
+                        <Button
+                            android:id="@+id/setDateButton"
                             android:layout_width="0dp"
-                            android:layout_height="48dp"
-                            android:layout_weight="1"
-                            android:ems="10"
-                            android:inputType="date"
-                            tools:ignore="SpeakableTextPresentCheck" />
+                            android:layout_height="wrap_content"
+                            android:layout_weight="6"
+                            android:text="Selectionner une date" />
 
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="100dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:text="Optionnel:    "
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/radioButton3"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Aucun" />
+
+                            <RadioButton
+                                android:id="@+id/beforeRadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Avant" />
+
+                            <RadioButton
+                                android:id="@+id/afterRadioButton"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Après" />
+                        </RadioGroup>
                     </LinearLayout>
 
                     <Button

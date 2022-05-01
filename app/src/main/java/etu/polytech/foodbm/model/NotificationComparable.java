@@ -2,6 +2,7 @@ package etu.polytech.foodbm.model;
 
 import android.app.Notification;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class NotificationComparable  implements Comparable, Cloneable{
@@ -33,6 +34,11 @@ public class NotificationComparable  implements Comparable, Cloneable{
 
     public Date getNotifDate() {
         return notifDate;
+    }
+
+    public String getDayNotif() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YY");
+        return sdf.format(notifDate);
     }
 
     @Override
