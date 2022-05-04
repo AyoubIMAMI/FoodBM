@@ -37,7 +37,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-public class NotificationController  extends AppCompatActivity{
+public class NotificationController extends AppCompatActivity{
 
     public static ArrayList<NotificationComparable> listNotificationOriginal;
     private final NotificationModel notificationModel;
