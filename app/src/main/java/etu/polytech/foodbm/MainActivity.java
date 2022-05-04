@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     public CurrencyController currencyController;
     public NotificationController notificationController;
     public MainPlanDisplayController mainPlanDisplayController;
-    public ImageView notifIcon;
 
 
     @Override
@@ -40,14 +39,5 @@ public class MainActivity extends AppCompatActivity {
         // MVC planDisplay controller call
         mainPlanDisplayController = new MainPlanDisplayController(this);
         mainPlanDisplayController.displayPlans();
-
-        /*notifIcon = findViewById(R.id.notifImageView);
-        notifIcon.setOnClickListener(view -> {
-            //notificationController.navigateToNotification(requireActivity());
-            /*Intent intent = new Intent(MainActivity.this, ManageNotificationActivity.class);
-            //intent.putExtra("notifMan", this);
-            startActivity(intent);
-        });*/
-
     }
 }
