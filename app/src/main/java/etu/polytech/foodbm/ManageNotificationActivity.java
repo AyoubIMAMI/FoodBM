@@ -70,7 +70,7 @@ public class ManageNotificationActivity extends AppCompatActivity {
         }*/
         this.filterView = findViewById(R.id.filterView);
         this.listNotificationOriginal  = new ArrayList<>();
-        //this.listNotificationOriginal = NotificationController.listNotificationOriginal;
+        this.listNotificationOriginal = NotificationController.listNotificationOriginal;
         this.listNotification = new ArrayList<>();
         this.listNotificationFilter = new ArrayList<>();
         //for(int i= 0 ; i < 5 ; i++)listNotificationOriginal.add(createNotification("Notification Init","C'est la notif "));
@@ -89,7 +89,7 @@ public class ManageNotificationActivity extends AppCompatActivity {
 
         View FilterContainer = findViewById(R.id.FilterContainer);
         FilterContainer.setOnClickListener(view -> {
-            ImageView arrow = findViewById(R.id.arrowImageView);
+            //ImageView arrow = findViewById(R.id.arrowImageView);
             if(hideFilterView){
                 hideFilterView = false;
                 filterView.setVisibility(LinearLayout.VISIBLE);

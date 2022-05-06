@@ -21,8 +21,8 @@ import etu.polytech.foodbm.model.Plan;
 
 
 public class ListAdaptaterNotification extends ArrayAdapter<NotificationComparable> {
-    public ListAdaptaterNotification(Context context, ArrayList<NotificationComparable> planArrayList) {
-        super(context, R.layout.conso_layout, planArrayList);
+    public ListAdaptaterNotification(Context context, ArrayList<NotificationComparable> notifArrayList) {
+        super(context, R.layout.conso_layout, notifArrayList);
     }
 
     @NonNull
@@ -42,9 +42,9 @@ public class ListAdaptaterNotification extends ArrayAdapter<NotificationComparab
         notifName.setText(notificationComp.getTitle());
         notifDescription.setText( notificationComp.getDescription());
 
-        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm:s dd/MM");
-        String currentDateandTime = sdf.format(notificationComp.getNotifDate());
-        notifDate.setText(currentDateandTime);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM");
+        String currentDateAndTime = sdf.format(notificationComp.getNotifDate());
+        notifDate.setText(currentDateAndTime);
 
 
         deleteButton.setOnClickListener(view -> {
