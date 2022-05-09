@@ -16,28 +16,28 @@
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
+            android:backgroundTint="#009688"
             android:text="Accueil" />
 
         <Button
             android:id="@+id/voucherButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
+            android:backgroundTint="#FF009688"
             android:text="Coupons" />
 
         <Button
             android:id="@+id/planButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
+            android:backgroundTint="#FF009688"
             android:text="Plan" />
 
         <Button
             android:id="@+id/settingButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="#929292"
+            android:backgroundTint="#FF009688"
             android:text="Options" />
     </LinearLayout>
 
