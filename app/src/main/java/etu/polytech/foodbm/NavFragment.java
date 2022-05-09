@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.constraintlayout.widget.ConstraintHelper;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,6 +36,7 @@ public class NavFragment extends Fragment {
     // Parameters
     private int buttonId = 0;
     private List<Button> buttons;
+    ConstraintLayout layout;
 
     public NavFragment() {
         // Required empty public constructor
@@ -68,6 +73,8 @@ public class NavFragment extends Fragment {
 
         List<ButtonModel> buttonModels = new ButtonsModel().constructButtonModelList();
         this.buttons = new ArrayList<>();
+        //swipeControle(v, getActivity());
+
 
         for (ButtonModel buttonModel : buttonModels) {
             Button button = v.findViewById(buttonModel.id);
@@ -78,11 +85,6 @@ public class NavFragment extends Fragment {
 
             button.setOnClickListener(view -> {
                 Intent intent = new Intent(getActivity(), buttonModel.redirection);
-                /*if(buttonModel.name == "Options"){
-                    MainActivity main = (MainActivity) getActivity();
-                    ArrayList<NotificationComparable> list = main.notificationController.getListNotificationOriginal();
-                    intent.putExtra("listNotif", list);
-                }*/
                 startActivity(intent);
             });
         }
