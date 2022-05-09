@@ -5,9 +5,13 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
-        import android.widget.Button;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.Toast;
 
         import androidx.annotation.NonNull;
         import androidx.appcompat.app.AppCompatActivity;
@@ -28,7 +32,7 @@ public class CreatePlanActivity extends AppCompatActivity {
 
     // creating variables for
     // EditText and buttons.
-    private EditText PlanName, Periode, PlanDate;
+    private EditText PlanName,  PlanDate;
 
 
     // creating a variable for our
@@ -43,6 +47,8 @@ public class CreatePlanActivity extends AppCompatActivity {
     // our object class
     PlanInfo planInfo;
     public Button sendDatabtn;
+    String[] languages = { "jour","semaine","mois","anneé"};
+    private Spinner Periode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +57,34 @@ public class CreatePlanActivity extends AppCompatActivity {
 
         // initializing our edittext and button
         PlanName = findViewById(R.id.editTextTextPersonName);
-        Periode = findViewById(R.id.editTextNumber);
         PlanDate = findViewById(R.id.editTextDate);
 
-        // below line is used to get the
+        this.Periode = (Spinner) findViewById(R.id.spinner2);
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item,
+                languages);
+
+        // Layout for All ROWs of Spinner.  (Optional for ArrayAdapter).
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        this.Periode.setAdapter(adapter);
+
+        // When user select a List-Item.
+        this.Periode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                onItemSelectedHandler(parent, view, position, id);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+            // below line is used to get the
         // instance of our FIrebase database.
         firebase= FirebaseFirestore.getInstance();
 
@@ -74,7 +104,7 @@ public class CreatePlanActivity extends AppCompatActivity {
 
                 // getting text from our edittext fields.
                 String name = PlanName.getText().toString();
-               String periode = Periode.getText().toString();
+               String periode = Periode.toString();
                PlanDate.addTextChangedListener(new TextWatcher() {
                    private String current = "";
                    private String ddmmyyyy = "DDMMYYYY";
@@ -177,4 +207,12 @@ public class CreatePlanActivity extends AppCompatActivity {
 
         });
     }
+    private void onItemSelectedHandler(AdapterView<?> adapterView, View view, int position, long id) {
+        Adapter adapter = adapterView.getAdapter();
+        String employee = (String) adapter.getItem(position);
+
+        Toast.makeText(getApplicationContext(), "Période " + employee.toString() ,Toast.LENGTH_SHORT).show();
+    }
+
 }
+
