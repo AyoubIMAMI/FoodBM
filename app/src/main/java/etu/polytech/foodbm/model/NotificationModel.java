@@ -4,7 +4,9 @@ import static android.content.ContentValues.TAG;
 
 import android.app.Notification;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -87,7 +89,17 @@ public class NotificationModel {
                                 String name = "Coupon "+vouch.get(i)+" a atteint sa date d'expiration";
                                 String description = voucherInfo.getDescription();
                                 notificationId++;
-                                notif = controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
+                                if(image.get(i)!=null && image.get(i)!=""){
+                                    Log.d(TAG,image.get(i));
+                                    byte[] decodedString = Base64.decode(image.get(i), Base64.DEFAULT);
+
+                                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+                                    notif = controller.onNotificationSent2(name, description, notificationId,decodedByte, NotificationCompat.PRIORITY_DEFAULT);
+                                }
+                                else {
+                                    notif = controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
+                                }
                             }
 
                         } else {

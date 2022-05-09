@@ -85,6 +85,21 @@ public class NotificationController extends AppCompatActivity{
         listNotificationOriginal.add(notifComparable);
         return notif;
     }
+    public Notification onNotificationSent2(String name, String description, int priorityDefault, Bitmap notimage, int notificationId) {
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(activity, channel_ID)
+
+                .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
+                .setContentTitle("Alerte Coupon")
+                .setContentText(name)
+                .setPriority(priorityDefault)
+                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(notimage)).setTimeoutAfter(100000);
+
+        Notification notif = notification.build();
+        NotificationActivity.getNotificationManager().notify(notificationId, notif);
+        NotificationComparable notifComparable = new NotificationComparable(notif, new Date(), "Alerte Coupon", name);
+        listNotificationOriginal.add(notifComparable);
+        return notif;
+    }
 
     public void navigateToNotification(Context c){
         Intent intent = new Intent(c, ManageNotificationActivity.class);
