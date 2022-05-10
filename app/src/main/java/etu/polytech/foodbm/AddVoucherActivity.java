@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -65,6 +66,7 @@ public class AddVoucherActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_create_voucher);
 
+
             // initializing our edittext and button
             VName = findViewById(R.id.voucherName);
             VDescription= findViewById(R.id.voucherDescription);
@@ -86,7 +88,9 @@ public class AddVoucherActivity extends AppCompatActivity {
             sendDatabtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent intent = new Intent(AddVoucherActivity.this, VoucherActivity.class);
+                    startActivity(intent);
+                    finish();
                     // getting text from our edittext fields.
                     String name = VName.getText().toString();
                     String Description = VDescription.getText().toString();
@@ -94,6 +98,7 @@ public class AddVoucherActivity extends AppCompatActivity {
                         private String current = "";
                         private String ddmmyyyy = "DDMMYYYY";
                         private Calendar cal = Calendar.getInstance();
+
 
                         @Override
                         public void onTextChanged(CharSequence s, int i, int i1, int i2) {
