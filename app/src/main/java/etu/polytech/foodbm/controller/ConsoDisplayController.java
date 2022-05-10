@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import etu.polytech.foodbm.ListAdaptaterConso;
 import etu.polytech.foodbm.R;
 import etu.polytech.foodbm.model.Conso;
-import etu.polytech.foodbm.model.PlanDisplayModel;
+import etu.polytech.foodbm.model.ConsoDisplayModel;
 
-public class PlanDisplayController {
-    private final PlanDisplayModel planDisplayModel;
+public class ConsoDisplayController {
+    private final ConsoDisplayModel planDisplayModel;
     private final Activity activity;
 
-    public PlanDisplayController(Activity activity){
-        this.planDisplayModel = new PlanDisplayModel(this);
+    public ConsoDisplayController(Activity activity){
+        this.planDisplayModel = new ConsoDisplayModel(this);
         this.activity = activity;
     }
 

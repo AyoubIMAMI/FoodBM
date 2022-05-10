@@ -5,10 +5,12 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import etu.polytech.foodbm.ListAdaptaterPlan;
 import etu.polytech.foodbm.model.Conso;
 import etu.polytech.foodbm.ListAdaptaterConso;
 import etu.polytech.foodbm.R;
 import etu.polytech.foodbm.model.MainPlanDisplayModel;
+import etu.polytech.foodbm.model.Plan;
 
 
 public class MainPlanDisplayController {
@@ -24,9 +26,9 @@ public class MainPlanDisplayController {
         this.mainPlanDisplayModel.displayPlan();
     }
 
-    public void onPlanDisplayed(ArrayList<Conso> plans){
-        ListAdaptaterConso listAdapterConsoPlan = new ListAdaptaterConso(activity, plans);
+    public void onPlanDisplayed(ArrayList<Plan> plans){
+        ListAdaptaterPlan listAdapterPlan = new ListAdaptaterPlan(activity, plans);
         ListView planListView = activity.findViewById(R.id.plans);
-        planListView.setAdapter(listAdapterConsoPlan);
+        planListView.setAdapter(listAdapterPlan);
     }
 }

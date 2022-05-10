@@ -266,7 +266,7 @@ public class AddVoucherActivity extends AppCompatActivity {
 
         public void AddCalendarEvent(View view) {
             Calendar calendarEvent = Calendar.getInstance();
-            long time = calendarEvent.getTimeInMillis() + 60 * 60 * 1000;
+            long time = calendarEvent.getTimeInMillis() + 48 * 60 * 60 * 1000;
             Intent i = new Intent(Intent.ACTION_EDIT);
             i.setType("vnd.android.cursor.item/event");
             i.putExtra("beginTime", time);
