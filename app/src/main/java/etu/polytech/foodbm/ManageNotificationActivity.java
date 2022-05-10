@@ -23,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DateFormat;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.stream.Collectors;
 
 import etu.polytech.foodbm.controller.NotificationController;
@@ -52,6 +54,7 @@ public class ManageNotificationActivity extends AppCompatActivity {
     Button setDate;
     EditText titleEdit;
     EditText descriptionEdit;
+    TextView noNotifText;
 
     View filterView;
     boolean hideFilterView = false;
@@ -68,6 +71,7 @@ public class ManageNotificationActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT)
                     .show();
         }*/
+        this.noNotifText = findViewById(R.id.noNotiftextView);
         this.filterView = findViewById(R.id.filterView);
         this.listNotificationOriginal  = new ArrayList<>();
         this.listNotificationOriginal = NotificationController.listNotificationOriginal;
@@ -169,12 +173,15 @@ public class ManageNotificationActivity extends AppCompatActivity {
             };
 
     private void setupListView(ArrayList<NotificationComparable> list){
+        if(list.size()>0)this.noNotifText.setVisibility(LinearLayout.GONE);
+        else this.noNotifText.setVisibility(LinearLayout.VISIBLE);
         listAdaptaterNotifPlan = new ListAdaptaterNotification(ManageNotificationActivity.this, list);
         ListView notifListView = findViewById(R.id.notifListView);
         notifListView.setAdapter(listAdaptaterNotifPlan);
     }
 
     private void addNotification() {
+        this.noNotifText.setVisibility(LinearLayout.GONE);
         NotificationComparable notif = createNotification("Notification","Je suis une notif");
         NotificationActivity.getNotificationManager().notify(indice++, notif.getNotification());
         listNotificationOriginal.add(notif);
@@ -249,6 +256,6 @@ public class ManageNotificationActivity extends AppCompatActivity {
     public static ArrayList<NotificationComparable> cloneList(ArrayList<NotificationComparable> list) {
         ArrayList<NotificationComparable> clone = new ArrayList<NotificationComparable>(list.size());
         for (NotificationComparable item : list) clone.add(new NotificationComparable(item.getNotification(), item.getNotifDate(), item.getTitle(), item.getDescription()));
-        return clone;
+        return new ArrayList<NotificationComparable>(new HashSet<NotificationComparable>(clone));
     }
 }

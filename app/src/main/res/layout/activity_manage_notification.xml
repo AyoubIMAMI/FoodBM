@@ -223,6 +223,7 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
+                                android:checked="true"
                                 android:text="Aucun" />
 
                             <RadioButton
@@ -253,6 +254,14 @@
 
         </FrameLayout>
 
+        <TextView
+            android:id="@+id/noNotiftextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FBFBFB"
+            android:gravity="center"
+            android:text="Aucune notification" />
+
         <ListView
             android:id="@+id/notifListView"
             android:layout_width="match_parent"
@@ -261,5 +270,15 @@
             tools:listitem="@layout/notification_layout" />
 
     </LinearLayout>
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_container"
+        android:name="etu.polytech.foodbm.NavFragment"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

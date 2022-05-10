@@ -64,17 +64,18 @@
 
                 <TextView
                     android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Début du mois: " />
 
                 <Spinner
                     android:id="@+id/spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
-                    android:minHeight="48dp" />
+                    android:minHeight="48dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
         </LinearLayout>
@@ -129,7 +130,10 @@
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_container"
         android:name="etu.polytech.foodbm.NavFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout="@layout/fragment_nav" />
 </androidx.constraintlayout.widget.ConstraintLayout>

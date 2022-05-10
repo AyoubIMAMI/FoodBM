@@ -41,10 +41,11 @@ public class SettingsActivity extends AppCompatActivity {
 
         spinner = (Spinner) findViewById(R.id.spinner);
         //Création d'une liste d'élément à mettre dans le Spinner(pour l'exemple)
-        List exempleList = new ArrayList();
+        List<String> exempleList = new ArrayList();
         exempleList.add("01");
         exempleList.add("02");
         exempleList.add("03");
+        for(int i = 1  ; i<=31 ; i++)exempleList.add(String.valueOf(i));
 
         /*Le Spinner a besoin d'un adapter pour sa presentation alors on lui passe le context(this) et
                 un fichier de presentation par défaut( android.R.layout.simple_spinner_item)
