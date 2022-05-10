@@ -10,8 +10,10 @@
         android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -25,14 +27,6 @@
             android:textStyle="bold"
             tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/textMesPlans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mes plans"
-            android:textColor="#4CAF50"
-            android:textSize="20sp"
-            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,10 +34,12 @@
         android:layout_width="match_parent"
         android:layout_height="414dp"
         android:layout_marginStart="5dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="5dp"
-        android:orientation="vertical"
 
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
 
@@ -51,7 +47,17 @@
             android:id="@+id/planListView"
             android:layout_width="match_parent"
             android:layout_height="356dp"
-            tools:listitem="@layout/plan_layout" />
+            tools:listitem="@layout/plan_layout">
+
+            <TextView
+                android:id="@+id/textMesPlans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mes plans"
+                android:textColor="#4CAF50"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </ListView>
 
     </LinearLayout>
 
@@ -73,8 +79,8 @@
         android:textColor="#58A3FF"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="572dp" />
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="627dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
