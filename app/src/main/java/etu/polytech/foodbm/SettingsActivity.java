@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -17,7 +18,7 @@ import etu.polytech.foodbm.model.NotificationComparable;
 
 public class SettingsActivity extends AppCompatActivity {
     Spinner spinner;
-    private ImageView notifIcon;
+    private LinearLayout notifLayout;
     private ArrayList<NotificationComparable> listNotificationOriginal;
 
 
@@ -29,16 +30,6 @@ public class SettingsActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
 
         setContentView(R.layout.activity_settings);
-
-        //listNotif
-        Intent intentIn = getIntent();
-        /*if (intentIn != null){
-            this.listNotificationOriginal = intentIn.getParcelableExtra("listNotif");
-            Toast.makeText(getApplicationContext(), "YYYESSS in setting",
-                    Toast.LENGTH_SHORT)
-                    .show();
-        }*/
-
         spinner = (Spinner) findViewById(R.id.spinner);
         //Création d'une liste d'élément à mettre dans le Spinner(pour l'exemple)
         List<String> exempleList = new ArrayList();
@@ -62,8 +53,8 @@ public class SettingsActivity extends AppCompatActivity {
         //Enfin on passe l'adapter au Spinner et c'est tout
         spinner.setAdapter(adapter);
 
-        notifIcon = findViewById(R.id.notifImageView);
-        notifIcon.setOnClickListener(view -> {
+        notifLayout = findViewById(R.id.notifLayout);
+        notifLayout.setOnClickListener(view -> {
             Intent intent = new Intent(SettingsActivity.this, ManageNotificationActivity.class);
             //intent.putExtra("listNotif", listNotificationOriginal);
             startActivity(intent);
