@@ -83,23 +83,22 @@ public class NotificationModel {
                               }
 
                             int i;
-                            for(i=0;i<vouch.size();++i){
-                                Log.d(TAG,vouch.toString());
-                                Log.d(TAG,image.toString());
-                                String name = "Coupon "+vouch.get(i)+" a atteint sa date d'expiration";
+                            for(i=0;i<vouch.size();++i) {
+                                Log.d(TAG, "les coupons sont " + vouch.toString());
+                                Log.d(TAG, image.toString());
+                                String name = "Coupon " + vouch.get(i) + " a atteint sa date d'expiration";
                                 String description = voucherInfo.getDescription();
                                 notificationId++;
-                                if(image.get(i)!=null && image.get(i)!=""){
-                                    Log.d(TAG,image.get(i));
+                                if (image.get(i) != null && image.get(i) != "") {
+                                    Log.d(TAG, image.get(i));
                                     byte[] decodedString = Base64.decode(image.get(i), Base64.DEFAULT);
 
                                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
-                                    notif = controller.onNotificationSent2(name, description, notificationId,decodedByte, NotificationCompat.PRIORITY_DEFAULT);
-                                }
-                                else {
+                                    notif = controller.onNotificationSent2(name, description, notificationId, decodedByte, NotificationCompat.PRIORITY_DEFAULT);
+                                }  else
                                     notif = controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
-                                }
+
                             }
 
                         } else {

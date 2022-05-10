@@ -1,5 +1,6 @@
 package etu.polytech.foodbm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
@@ -101,7 +102,9 @@ public class CreatePlanActivity extends AppCompatActivity {
         sendDatabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(CreatePlanActivity.this, PlanManagerActivity.class);
+                startActivity(intent);
+                finish();
                 // getting text from our edittext fields.
                 String name = PlanName.getText().toString();
                String periode = Periode.toString();

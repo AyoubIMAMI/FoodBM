@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Compte"
+            android:textColor="#4CAF50"
             android:textSize="34sp"
             android:textStyle="bold" />
 
@@ -44,7 +45,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Exporter ses données (.xlsx)" />
+                    android:text="Exporter ses données (.xlsx)"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -57,7 +59,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Début du mois: " />
+                    android:text="Début du mois: "
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinner"
@@ -75,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Paramètre"
+            android:textColor="#4CAF50"
             android:textSize="34sp"
             android:textStyle="bold" />
 
@@ -124,17 +128,19 @@
 
             <ImageView
                 android:id="@+id/notifImageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:background="#009688"
                 app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@android:drawable/ic_popup_reminder" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="match_parent"
+                android:layout_width="272dp"
                 android:layout_height="wrap_content"
                 android:text=" Notifications"
+                android:textColor="#4CAF50"
                 android:textSize="34sp"
                 android:textStyle="bold" />
         </LinearLayout>

@@ -10,7 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
+import android.os.Bundle;import android.os.SystemClock;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -76,13 +76,21 @@ public class NotificationController extends AppCompatActivity{
                 .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
                 .setContentTitle("Alerte Coupon")
                 .setContentText(name)
+                .setGroup("my voucher")
                 .setPriority(priorityDefault)
                 .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(this.bitmap)).setTimeoutAfter(10000);
 
         Notification notif = notification.build();
-        NotificationActivity.getNotificationManager().notify(notificationId, notif);
+      //  NotificationActivity.getNotificationManager().notify(notificationId, notif);
+
+        for(int i=0;i<3;i++){
+            SystemClock.sleep(500);
+            NotificationActivity.getNotificationManager().notify(notificationId, notif);
+
+        }
         NotificationComparable notifComparable = new NotificationComparable(notif, new Date(), "Alerte Coupon", name);
         listNotificationOriginal.add(notifComparable);
+
         return notif;
     }
     public Notification onNotificationSent2(String name, String description, int priorityDefault, Bitmap notimage, int notificationId) {
@@ -91,13 +99,20 @@ public class NotificationController extends AppCompatActivity{
                 .setSmallIcon(com.google.firebase.database.ktx.R.drawable.common_full_open_on_phone)
                 .setContentTitle("Alerte Coupon")
                 .setContentText(name)
+                .setGroup("my voucher")
                 .setPriority(priorityDefault)
                 .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(notimage)).setTimeoutAfter(100000);
 
         Notification notif = notification.build();
-        NotificationActivity.getNotificationManager().notify(notificationId, notif);
+       // NotificationActivity.getNotificationManager().notify(notificationId, notif);
+        for(int i=0;i<3;i++){
+            SystemClock.sleep(500);
+            NotificationActivity.getNotificationManager().notify(notificationId, notif);
+
+        }
         NotificationComparable notifComparable = new NotificationComparable(notif, new Date(), "Alerte Coupon", name);
         listNotificationOriginal.add(notifComparable);
+
         return notif;
     }
 
