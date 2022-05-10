@@ -10,11 +10,10 @@
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/activity_manage_notification.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/activity_plan_detail.xml" value="0.17119565217391305" />
-        <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.24742268041237114" />
+        <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.1" />
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/activity_voucher.xml" value="0.1" />
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/conso_layout.xml" value="0.11302083333333333" />
-        <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/fragment_nav.xml" value="0.2" />
-        <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/item.xml" value="0.2" />
+        <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/item.xml" value="0.1" />
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/notification_layout.xml" value="0.12037037037037036" />
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/layout/plan_layout.xml" value="0.264" />
         <entry key="..\:/Users/aliba/OneDrive/Images/Slide Shows/FoodBM/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.122" />
@@ -35,11 +34,15 @@
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.34057971014492755" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_manage_notification.xml" value="0.412962962962963" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_manager.xml" value="0.15" />
+        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_plan_detail.xml" value="0.17831813576494426" />
+        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.25" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_settings.xml" value="0.17831813576494426" />
+        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_voucher.xml" value="0.33" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/conso_layout.xml" value="0.15" />
-        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/fragment_nav.xml" value="0.26856884057971014" />
+        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/fragment_nav.xml" value="0.33" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/fragment_notification.xml" value="0.33" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/notification_layout.xml" value="0.4064039408866995" />
+        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/plan_layout.xml" value="0.25" />
       </map>
     </option>
   </component>

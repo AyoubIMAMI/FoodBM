@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class NavFragment extends Fragment {
 
     // Parameters
     private int buttonId = 0;
-    private List<Button> buttons;
+    private List<TextView> buttons;
     ConstraintLayout layout;
 
     public NavFragment() {
@@ -77,11 +78,11 @@ public class NavFragment extends Fragment {
 
 
         for (ButtonModel buttonModel : buttonModels) {
-            Button button = v.findViewById(buttonModel.id);
+            TextView button = v.findViewById(buttonModel.id);
             this.buttons.add(button);
 
             if (buttonModel.id == buttonId)
-                button.setBackgroundColor(Color.parseColor("#6c98a3"));
+                button.setTextColor(Color.parseColor("#FFFFFF"));
 
             button.setOnClickListener(view -> {
                 Intent intent = new Intent(getActivity(), buttonModel.redirection);

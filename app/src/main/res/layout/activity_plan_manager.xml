@@ -50,7 +50,8 @@
         <ListView
             android:id="@+id/planListView"
             android:layout_width="match_parent"
-            android:layout_height="356dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
             tools:listitem="@layout/plan_layout" />
 
     </LinearLayout>
@@ -69,12 +70,13 @@
         android:id="@+id/addPlanButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="+ AJOUTER UN PLAN"
         android:textColor="#58A3FF"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="572dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nav_container"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
