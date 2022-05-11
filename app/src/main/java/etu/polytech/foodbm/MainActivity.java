@@ -26,7 +26,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        NavFragment navFragment = NavFragment.newInstance(R.id.homeButton);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
 
+        swipe();
+
+        // MVC currency convertor call
+        currencyController = new CurrencyController(this);
+        currencyController.convertCurrency();
+
+        // MVC notification controller call
+        notificationController = new NotificationController(this);
+        notificationController.sendNotification();
+
+        // MVC planDisplay controller call
+        mainPlanDisplayController = new MainPlanDisplayController(this);
+        mainPlanDisplayController.displayPlans();
+    }
+    public void swipe(){
         layout = findViewById(R.id.appLayout);
         layout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
             @Override
@@ -42,21 +59,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Swipe Right gesture detected", Toast.LENGTH_SHORT).show();
             }
         });
-
-        NavFragment navFragment = NavFragment.newInstance(R.id.homeButton);
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
-
-
-        // MVC currency convertor call
-        currencyController = new CurrencyController(this);
-        currencyController.convertCurrency();
-
-        // MVC notification controller call
-        notificationController = new NotificationController(this);
-        notificationController.sendNotification();
-
-        // MVC planDisplay controller call
-        mainPlanDisplayController = new MainPlanDisplayController(this);
-        mainPlanDisplayController.displayPlans();
     }
 }
+
