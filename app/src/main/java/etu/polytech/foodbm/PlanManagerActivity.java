@@ -37,7 +37,7 @@ public class  PlanManagerActivity extends AppCompatActivity {
         });
 
         ArrayList<Plan> listPlan = new ArrayList<>();
-        listPlan.add(new Plan("Conso perso", 100, LocalDate.now()));
+        listPlan.add(new Plan("Plan perso", 100, LocalDate.now()));
         listPlan.add(new Plan("Travail Chine", 100,LocalDate.now()));
         listPlan.add(new Plan("Travail Espagne", 100,LocalDate.now()));
         for(int i= 0 ; i < 20 ; i++)listPlan.add(new Plan("Travail Espagne n°"+i, 100+i,LocalDate.now()));

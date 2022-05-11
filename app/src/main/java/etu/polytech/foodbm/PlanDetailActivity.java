@@ -8,10 +8,8 @@ import android.widget.TextView;
 
 import java.time.LocalDate;
 
-import etu.polytech.foodbm.controller.MainPlanDisplayController;
-import etu.polytech.foodbm.controller.PlanDisplayController;
+import etu.polytech.foodbm.controller.ConsoDisplayController;
 import etu.polytech.foodbm.model.Plan;
-import etu.polytech.foodbm.model.PlanDisplayModel;
 
 public class PlanDetailActivity extends AppCompatActivity {
 
@@ -19,7 +17,7 @@ public class PlanDetailActivity extends AppCompatActivity {
     private TextView nomTextView;
     private TextView valueTextView;
     private TextView dateTextView;
-    private PlanDisplayController planDisplayController;
+    private ConsoDisplayController planDisplayController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +43,7 @@ public class PlanDetailActivity extends AppCompatActivity {
         }
 
         // MVC planDisplay controller call
-        planDisplayController = new PlanDisplayController(this);
+        planDisplayController = new ConsoDisplayController(this);
         planDisplayController.displayPlans();
     }
 }

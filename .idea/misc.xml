@@ -25,6 +25,8 @@
         <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_create_plan.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_create_voucher.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_manage_notification.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_plan_detail.xml" value="0.4" />
         <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_settings.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/youbi/Desktop/Cours/Semestre_6/IHM/FoodBudgetManager/FoodBM/app/src/main/res/layout/activity_voucher.xml" value="0.2" />
@@ -34,7 +36,7 @@
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_main.xml" value="0.34057971014492755" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_manage_notification.xml" value="0.412962962962963" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_manager.xml" value="0.15" />
-        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_plan_detail.xml" value="0.569377990430622" />
+        <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_plan_detail.xml" value="0.17831813576494426" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_plan_manager.xml" value="0.25" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_settings.xml" value="0.33" />
         <entry key="..\:/leo/Polytech/S6/IHM/FoodBM/app/src/main/res/layout/activity_voucher.xml" value="0.33" />
