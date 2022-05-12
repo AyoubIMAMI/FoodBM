@@ -1,6 +1,5 @@
 package etu.polytech.foodbm;
 
-
 import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         NavFragment navFragment = NavFragment.newInstance(R.id.homeButton);
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_container, navFragment).commit();
 
-        swipe();
 
         // MVC currency convertor call
         currencyController = new CurrencyController(this);
@@ -42,23 +40,6 @@ public class MainActivity extends AppCompatActivity {
         // MVC planDisplay controller call
         mainPlanDisplayController = new MainPlanDisplayController(this);
         mainPlanDisplayController.displayPlans();
-    }
-    public void swipe(){
-        layout = findViewById(R.id.appLayout);
-        layout.setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-            @Override
-            public void onSwipeLeft() {
-                Toast.makeText(MainActivity.this, "Swipe Left gesture detected", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, VoucherActivity.class);
-                startActivity(intent);
-                //swipeLeft();
-            }
-            @Override
-            public void onSwipeRight() {
-                super.onSwipeRight();
-                Toast.makeText(MainActivity.this, "Swipe Right gesture detected", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 }
 
