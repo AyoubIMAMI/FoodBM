@@ -84,7 +84,7 @@ public class NotificationController extends AppCompatActivity{
       //  NotificationActivity.getNotificationManager().notify(notificationId, notif);
 
         for(int i=0;i<3;i++){
-            SystemClock.sleep(500);
+            SystemClock.sleep(1000);
             NotificationActivity.getNotificationManager().notify(notificationId, notif);
 
         }
@@ -101,12 +101,12 @@ public class NotificationController extends AppCompatActivity{
                 .setContentText(name)
                 .setGroup("my voucher")
                 .setPriority(priorityDefault)
-                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(notimage)).setTimeoutAfter(100000);
+                .setStyle(new NotificationCompat.BigPictureStyle().bigPicture(notimage)).setTimeoutAfter(10000);
 
         Notification notif = notification.build();
        // NotificationActivity.getNotificationManager().notify(notificationId, notif);
         for(int i=0;i<3;i++){
-            SystemClock.sleep(500);
+            SystemClock.sleep(1000);
             NotificationActivity.getNotificationManager().notify(notificationId, notif);
 
         }

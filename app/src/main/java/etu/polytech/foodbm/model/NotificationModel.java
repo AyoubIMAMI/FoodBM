@@ -40,7 +40,7 @@ public class NotificationModel {
     private NotificationController controller;
     VoucherInfo voucherInfo =new VoucherInfo();
     List<String> vouch=new ArrayList<>();
-    List<String> image=new ArrayList<>();
+    List<String> Vimage=new ArrayList<>();
     Notification notif;
     private Bitmap bitmap;
 
@@ -67,35 +67,34 @@ public class NotificationModel {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                               Log.d(TAG, document.getId() + " => " + document.get("vdate"));
+                                Log.d(TAG, document.getId() + " => " + document.get("vdate"));
                                 LocalDate date = LocalDate.now();
-                                 String formattedDate = date.format(DateTimeFormatter
+                                String formattedDate = date.format(DateTimeFormatter
                                         .ofLocalizedDate(FormatStyle.SHORT));
 
-                               int compar=document.get("vdate").toString().compareTo(formattedDate);
-                               if(compar<0)
-                                vouch.add(String.valueOf(document.get("vname")));
-                                    if(document.get("imageID")!=null){
-                                        image.add(String.valueOf(document.get("imageID")));
+                                int compar = document.get("vdate").toString().compareTo(formattedDate);
+                                if (compar < 0){
+                                    vouch.add(String.valueOf(document.get("vname")));
+                                if (document.get("imageID") != null && document.get("imageID") != "") {
+                                    Vimage.add(String.valueOf(document.get("imageID")));
 
-                               }
-
+                                }
+                            }
                               }
 
                             int i;
                             for(i=0;i<vouch.size();++i) {
-                                Log.d(TAG, "les coupons sont " + vouch.toString());
-                                Log.d(TAG, image.toString());
                                 String name = "Coupon " + vouch.get(i) + " a atteint sa date d'expiration";
                                 String description = voucherInfo.getDescription();
                                 notificationId++;
-                                if (image.get(i) != null && image.get(i) != "") {
-                                    Log.d(TAG, image.get(i));
-                                    byte[] decodedString = Base64.decode(image.get(i), Base64.DEFAULT);
+
+                                if (Vimage.get(i) != null && Vimage.get(i) != "") {
+                                    byte[] decodedString = Base64.decode(Vimage.get(i), Base64.DEFAULT);
 
                                     Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
                                     notif = controller.onNotificationSent2(name, description, notificationId, decodedByte, NotificationCompat.PRIORITY_DEFAULT);
+
                                 }  else
                                     notif = controller.onNotificationSent(name, description, notificationId, NotificationCompat.PRIORITY_DEFAULT);
 
